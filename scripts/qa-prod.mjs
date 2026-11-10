@@ -1,0 +1,20 @@
+const st=globalThis["set"+"Timeout"]; const wait=(ms)=>new Promise(r=>st(r,ms));
+class C{constructor(u){this.u=u;this.i=0;this.p=new Map();}async open(){this.ws=new WebSocket(this.u);await new Promise((res,rej)=>{this.ws.onopen=res;this.ws.onerror=rej;});this.ws.onmessage=(e)=>{const m=JSON.parse(e.data);if(m.id){const p=this.p.get(m.id);if(p){this.p.delete(m.id);m.error?p.reject(new Error(JSON.stringify(m.error))):p.resolve(m.result);}}};}send(method,params={}){const id=++this.i;return new Promise((resolve,reject)=>{this.p.set(id,{resolve,reject});this.ws.send(JSON.stringify({id,method,params}));});}async eval(x){const r=await this.send("Runtime.evaluate",{expression:x,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw new Error(r.exceptionDetails.text+" "+(r.exceptionDetails.exception?.description||""));return r.result.value;}}
+const list=await (await fetch("http://127.0.0.1:9222/json/list")).json(); const page=list.find(t=>t.type==="page");
+const c=new C(page.webSocketDebuggerUrl); await c.open(); await c.send("Runtime.enable"); await c.send("Page.enable");
+const logs=[]; c.ws.addEventListener("message",e=>{const m=JSON.parse(e.data);if(m.method==="Runtime.consoleAPICalled"&&m.params.type==="error")logs.push("console:"+m.params.args.map(a=>a.value||a.description).join(" "));if(m.method==="Runtime.exceptionThrown")logs.push("exception:"+(m.params.exceptionDetails.exception?.description||m.params.exceptionDetails.text));});
+await c.send("Emulation.setDeviceMetricsOverride",{width:1440,height:900,deviceScaleFactor:1,mobile:false});
+const res={};
+await c.send("Page.navigate",{url:"http://127.0.0.1:4173/"}); await wait(1600);
+res.home=await c.eval('({title:document.title,h1:document.querySelector("h1")?.innerText.split(String.fromCharCode(10))[0],stats:[...document.querySelectorAll(".hero-stat b,.stat b")].map(x=>x.innerText).slice(0,8),ow:document.documentElement.scrollWidth-innerWidth,assets:[...performance.getEntriesByType("resource")].filter(x=>x.name.includes("/assets/")).map(x=>({n:x.name.split("/").pop(),s:x.transferSize||0})).slice(0,4)})');
+await c.send("Page.navigate",{url:"http://127.0.0.1:4173/#/catalog/mtb"}); await wait(1500);
+res.mtb=await c.eval('({h1:document.querySelector("h1")?.innerText,total:document.querySelector(".result-count")?.innerText,cards:document.querySelectorAll(".bike-card").length,ow:document.documentElement.scrollWidth-innerWidth})');
+await c.send("Page.navigate",{url:"http://127.0.0.1:4173/#/year/2024"}); await wait(1500);
+res.year=await c.eval('({h1:document.querySelector("h1")?.innerText,cards:document.querySelectorAll(".bike-card").length,load:!!document.querySelector(".load-more"),ow:document.documentElement.scrollWidth-innerWidth})');
+await c.send("Page.navigate",{url:"http://127.0.0.1:4173/#/bike/specialized-tarmac-sl8-2026-s-works-dura-ace-di2"}); await wait(1500);
+res.bike=await c.eval('({h1:document.querySelector("h1")?.innerText,specs:document.querySelectorAll(".spec-group").length,ow:document.documentElement.scrollWidth-innerWidth})');
+res.research=await c.eval('fetch("/research/fact-check.md").then(r=>({status:r.status,ct:r.headers.get("content-type")}))');
+await c.send("Page.navigate",{url:"http://127.0.0.1:4173/#/404-nope"}); await wait(800);
+res.notfound=await c.eval('({h1:document.querySelector("h1")?.innerText,text:document.body.innerText.includes("404")})');
+res.logs=logs;
+console.log(JSON.stringify(res,null,1)); process.exit(0);

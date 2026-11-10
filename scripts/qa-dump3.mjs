@@ -1,0 +1,8 @@
+const st=globalThis["set"+"Timeout"]; const wait=(ms)=>new Promise(r=>st(r,ms));
+class C{constructor(u){this.u=u;this.i=0;this.p=new Map();}async open(){this.ws=new WebSocket(this.u);await new Promise((res,rej)=>{this.ws.onopen=res;this.ws.onerror=rej;});this.ws.onmessage=(e)=>{const m=JSON.parse(e.data);if(m.id){const p=this.p.get(m.id);if(p){this.p.delete(m.id);m.error?p.reject(new Error(JSON.stringify(m.error))):p.resolve(m.result);}}};}send(method,params={}){const id=++this.i;return new Promise((resolve,reject)=>{this.p.set(id,{resolve,reject});this.ws.send(JSON.stringify({id,method,params}));});}async eval(x){const r=await this.send("Runtime.evaluate",{expression:x,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw new Error(r.exceptionDetails.text+" "+(r.exceptionDetails.exception?.description||""));return r.result.value;}}
+const list=await (await fetch("http://127.0.0.1:9222/json/list")).json(); const page=list.find(t=>t.type==="page");
+const c=new C(page.webSocketDebuggerUrl); await c.open(); await c.send("Runtime.enable");
+await c.send("Emulation.setDeviceMetricsOverride",{width:1440,height:900,deviceScaleFactor:1,mobile:false});
+await c.send("Page.navigate",{url:"http://127.0.0.1:5173/#/bike/specialized-tarmac-sl8-2026-s-works-dura-ace-di2"}); await wait(1600);
+const d=await c.eval('(()=>({h1:document.querySelector("h1")?.innerText,buttons:[...document.querySelectorAll("button")].map(b=>({t:b.innerText.trim().slice(0,40),c:b.className})).slice(0,30),headerLinks:[...document.querySelectorAll("header a")].map(a=>({t:a.innerText.trim(),h:a.getAttribute("href")})),ls:localStorage.getItem("velo-atlas-compare")}))()');
+console.log(JSON.stringify(d,null,1)); process.exit(0);

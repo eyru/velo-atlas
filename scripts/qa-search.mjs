@@ -1,0 +1,18 @@
+const st=globalThis["set"+"Timeout"]; const wait=(ms)=>new Promise(r=>st(r,ms));
+class C{constructor(u){this.u=u;this.i=0;this.p=new Map();}async open(){this.ws=new WebSocket(this.u);await new Promise((res,rej)=>{this.ws.onopen=res;this.ws.onerror=rej;});this.ws.onmessage=(e)=>{const m=JSON.parse(e.data);if(m.id){const p=this.p.get(m.id);if(p){this.p.delete(m.id);m.error?p.reject(new Error(JSON.stringify(m.error))):p.resolve(m.result);}}};}send(method,params={}){const id=++this.i;return new Promise((resolve,reject)=>{this.p.set(id,{resolve,reject});this.ws.send(JSON.stringify({id,method,params}));});}async eval(x){const r=await this.send("Runtime.evaluate",{expression:x,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw new Error(r.exceptionDetails.text+" "+(r.exceptionDetails.exception?.description||""));return r.result.value;}}
+const list=await (await fetch("http://127.0.0.1:9222/json/list")).json(); const page=list.find(t=>t.type==="page");
+const c=new C(page.webSocketDebuggerUrl); await c.open(); await c.send("Runtime.enable");
+const logs=[]; c.ws.addEventListener("message",e=>{const m=JSON.parse(e.data);if(m.method==="Runtime.consoleAPICalled"&&m.params.type==="error")logs.push("console:"+m.params.args.map(a=>a.value||a.description).join(" "));if(m.method==="Runtime.exceptionThrown")logs.push("exception:"+(m.params.exceptionDetails.exception?.description||m.params.exceptionDetails.text));});
+await c.send("Emulation.setDeviceMetricsOverride",{width:1440,height:900,deviceScaleFactor:1,mobile:false});
+await c.send("Page.navigate",{url:"http://127.0.0.1:5173/#/catalog/road"}); await wait(1500);
+await c.eval('(()=>{const s=document.querySelector("select");s.value="price-asc";s.dispatchEvent(new Event("change",{bubbles:true}));return s.value;})()'); await wait(600);
+const sort=await c.eval('(()=>{const cards=[...document.querySelectorAll(".bike-card")];return {n:cards.length,hash:location.hash,first:cards.slice(0,4).map(x=>x.innerText.split(String.fromCharCode(10)).join(" | ").slice(0,160))};})()');
+await c.eval('document.querySelector(".search-trigger").click()'); await wait(400);
+const opened=await c.eval('({overlay:!!document.querySelector(".search-overlay"),inputs:document.querySelectorAll(".search-overlay input").length,active:document.activeElement?.tagName})');
+await c.eval('(()=>{const inp=document.querySelector(".search-overlay input");const set=Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,"value").set;set.call(inp,"Tarmac");inp.dispatchEvent(new Event("input",{bubbles:true}));return true;})()'); await wait(600);
+const results=await c.eval('(()=>{const rows=[...document.querySelectorAll(".result-row")];return {n:rows.length,first:rows.slice(0,3).map(x=>x.innerText.split(String.fromCharCode(10)).join(" | ").slice(0,100))};})()');
+await c.eval('document.querySelector(".search-overlay input").dispatchEvent(new KeyboardEvent("keydown",{key:"ArrowDown",bubbles:true}))'); await wait(150);
+const active=await c.eval('document.querySelector(".result-row.is-active")?.innerText.split(String.fromCharCode(10)).join(" | ").slice(0,80)');
+await c.eval('document.querySelector(".search-overlay input").dispatchEvent(new KeyboardEvent("keydown",{key:"Enter",bubbles:true}))'); await wait(900);
+const nav=await c.eval('({hash:location.hash,h1:document.querySelector("h1")?.innerText.slice(0,80),overlay:!!document.querySelector(".search-overlay")})');
+console.log(JSON.stringify({sort,opened,results,active,nav,logs},null,1)); process.exit(0);

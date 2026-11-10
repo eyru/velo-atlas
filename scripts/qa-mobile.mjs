@@ -1,0 +1,17 @@
+const st=globalThis["set"+"Timeout"]; const wait=(ms)=>new Promise(r=>st(r,ms));
+class C{constructor(u){this.u=u;this.i=0;this.p=new Map();}async open(){this.ws=new WebSocket(this.u);await new Promise((res,rej)=>{this.ws.onopen=res;this.ws.onerror=rej;});this.ws.onmessage=(e)=>{const m=JSON.parse(e.data);if(m.id){const p=this.p.get(m.id);if(p){this.p.delete(m.id);m.error?p.reject(new Error(JSON.stringify(m.error))):p.resolve(m.result);}}};}send(method,params={}){const id=++this.i;return new Promise((resolve,reject)=>{this.p.set(id,{resolve,reject});this.ws.send(JSON.stringify({id,method,params}));});}async eval(x){const r=await this.send("Runtime.evaluate",{expression:x,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw new Error(r.exceptionDetails.text+" "+(r.exceptionDetails.exception?.description||""));return r.result.value;}}
+const list=await (await fetch("http://127.0.0.1:9222/json/list")).json(); const page=list.find(t=>t.type==="page");
+const c=new C(page.webSocketDebuggerUrl); await c.open(); await c.send("Runtime.enable");
+await c.send("Emulation.setDeviceMetricsOverride",{width:390,height:844,deviceScaleFactor:2,mobile:true});
+await c.send("Page.navigate",{url:"http://127.0.0.1:5173/"}); await wait(1600);
+const home=await c.eval('({ow:document.documentElement.scrollWidth-innerWidth,toggle:!!document.querySelector(".menu-toggle"),links:[...document.querySelectorAll("header a")].map(a=>a.innerText.trim()).slice(0,12)})');
+await c.eval('document.querySelector(".menu-toggle").click()'); await wait(400);
+const menu=await c.eval('(()=>{const all=[...document.querySelectorAll("body *")].filter(x=>{const s=getComputedStyle(x);return s.position==="fixed"&&s.display!=="none"&&x.innerText&&x.innerText.length>20;});return {fixed:all.slice(0,4).map(x=>({c:x.className,t:x.innerText.split(String.fromCharCode(10)).filter(Boolean).slice(0,10)})),bodyOverflow:getComputedStyle(document.body).overflow,ow:document.documentElement.scrollWidth-innerWidth};})()');
+await c.eval('document.querySelector(".menu-toggle").click()'); await wait(300);
+const closed=await c.eval('(()=>{const m=document.querySelector(".mobile-menu");return {exists:!!m,display:m?getComputedStyle(m).display:null,ow:document.documentElement.scrollWidth-innerWidth};})()');
+await c.send("Page.navigate",{url:"http://127.0.0.1:5173/#/catalog/road"}); await wait(1400);
+await c.eval('document.querySelector(".filter-toggle").click()'); await wait(500);
+const drawer=await c.eval('(()=>{const cand=[...document.querySelectorAll("body *")].filter(x=>{const s=getComputedStyle(x);return s.position==="fixed"&&s.display!=="none"&&x.querySelector(".filter-row");});return {n:cand.length,cls:cand.map(x=>x.className),vis:cand.map(x=>x.getBoundingClientRect().width),screen:getComputedStyle(document.body).overflow,ow:document.documentElement.scrollWidth-innerWidth};})()');
+await c.eval('(()=>{const b=[...document.querySelectorAll(".filter-row")].find(x=>x.innerText.includes("Specialized"));b.click();const ap=[...document.querySelectorAll("button")].find(x=>/查看.*车|应用|确定/.test(x.innerText));return {clicked:b.innerText.trim(),apply:ap?ap.innerText.trim():null};})()'); await wait(400);
+const applied=await c.eval('({hash:location.hash,cards:document.querySelectorAll(".bike-card").length,empty:document.body.innerText.includes("没有匹配"),ow:document.documentElement.scrollWidth-innerWidth})');
+console.log(JSON.stringify({home,menu,closed,drawer,applied},null,1)); process.exit(0);

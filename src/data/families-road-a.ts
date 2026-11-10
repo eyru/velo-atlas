@@ -1,0 +1,428 @@
+import { B, C, roadFamily } from "./helpers";
+
+export const roadFamiliesA = [
+  /* ───────────────────────── Specialized ───────────────────────── */
+  roadFamily("Specialized", "Tarmac SL8", {
+    disc: "race", years: [2023, 2026], gen: "SL8",
+    frame: "FACT 12r 碳纤维车架 · Rider-First Engineered",
+    fork: "S-Works FACT 12r 全碳前叉",
+    geoOverride: { stack: 544, reach: 387, headAngle: 73.5, seatAngle: 73.5, chainstay: 410, wheelbase: 984 },
+    colors: [
+      C("电光紫红", "Gloss Electric Red Tint", "#c8102e", "红"),
+      C("幻彩蓝", "Gloss Chameleon Blue", "#1b4f9c", "蓝"),
+      C("岩石黑", "Satin Carbon Black", "#15161a", "黑"),
+      C("月光白", "Gloss White", "#e8e6df", "白"),
+      C("钛银", "Satin Titanium", "#8a8f94", "银"),
+    ],
+    highlights: ["Speed Sniffer 下沉式后上叉", "全新一体式 Roval Rapide 座舱", "风洞优化管型，40km 节省 16 秒"],
+    story: "Tarmac SL8 把 SL7 的气动优势与 Aethos 的轻量哲学合二为一，是 Specialized 公路车序列里最接近“全能竞赛机器”的答案。",
+    builds: [
+      B(2026, "S-Works Dura-Ace Di2", 99990, 6.67, "Shimano Dura-Ace Di2 R9270", "Roval Rapide CLX III", { popularity: 98 }),
+      B(2025, "Pro Ultegra Di2", 69990, 7.35, "Shimano Ultegra Di2 R8170", "Roval Rapide CL II", { popularity: 92 }),
+      B(2024, "Expert 105 Di2", 49990, 7.9, "Shimano 105 Di2 R7170", "Roval C38", { popularity: 88 }),
+      B(2023, "Comp 105", 36990, 8.2, "Shimano 105 R7000", "DT Swiss PR 1600", { popularity: 80 }),
+    ],
+  }),
+  roadFamily("Specialized", "Roubaix", {
+    disc: "endurance", years: [2024, 2026], gen: "Roubaix 5",
+    frame: "FACT 11r 碳纤维车架 · Future Shock 3.0",
+    fork: "S-Works FACT 11r 全碳前叉",
+    geoOverride: { stack: 585, reach: 385, headAngle: 72, seatAngle: 73.5, chainstay: 418, wheelbase: 1002 },
+    colors: [
+      C("丝绒黑", "Satin Obsidian", "#111214", "黑"),
+      C("香槟金", "Champagne Gold", "#b79b62", "金"),
+      C("深海蓝", "Deep Ocean Blue", "#17324d", "蓝"),
+      C("陶土红", "Terracotta Red", "#9c3a2c", "红"),
+    ],
+    highlights: ["Future Shock 3.0 20mm 避震", "Pavé 座管与 32c 胎容", "耐力几何，长距离舒适取向"],
+    story: "为巴黎–鲁贝而生的耐力车系，Roubaix 用 Future Shock 把石板路的震动挡在车手之外，同时保留公路车的轻快。",
+    builds: [
+      B(2026, "S-Works Future Shock", 99990, 7.2, "SRAM RED AXS", "Roval Rapide CLX III", { popularity: 83 }),
+      B(2025, "Pro Future Shock", 59990, 8.1, "Shimano Ultegra Di2 R8170", "Roval Rapide CL II", { popularity: 78 }),
+      B(2024, "Comp Future Shock", 35990, 9.0, "Shimano 105 R7000", "DT Swiss PR 1600", { popularity: 72 }),
+    ],
+  }),
+  roadFamily("Specialized", "Aethos", {
+    disc: "climbing", years: [2022, 2026], gen: "Aethos 2",
+    frame: "FACT 12r 碳纤维车架 · 圆管轻量结构",
+    fork: "S-Works FACT 12r 全碳前叉",
+    geoOverride: { stack: 545, reach: 385, headAngle: 73, seatAngle: 73.5, chainstay: 410, wheelbase: 980 },
+    colors: [
+      C("裸碳黑", "Raw Carbon", "#232529", "黑"),
+      C("冰川银", "Glacial Silver", "#c7ccd1", "银"),
+      C("勃艮第红", "Burgundy", "#6e1f2b", "红"),
+      C("橄榄绿", "Olive Green", "#59603f", "绿"),
+    ],
+    highlights: ["整车 6.2kg 级轻量", "圆管造型与经典比例", "爬坡与长距离的纯粹解法"],
+    story: "Aethos 是一次减法：没有气动管型，没有整合座舱，只有被压到极限的碳纤维克重和一台让人想一直摇车上坡的车。",
+    builds: [
+      B(2026, "S-Works Dura-Ace Di2", 99990, 6.2, "Shimano Dura-Ace Di2 R9270", "Roval Alpinist CLX III", { popularity: 85 }),
+      B(2024, "Expert Ultegra Di2", 57990, 7.0, "Shimano Ultegra Di2 R8170", "Roval Alpinist CLX III", { popularity: 76 }),
+      B(2022, "Comp 105", 32990, 7.8, "Shimano 105 R7000", "DT Swiss PR 1600", { popularity: 68 }),
+    ],
+  }),
+  roadFamily("Specialized", "Allez", {
+    disc: "race", years: [2024, 2026], gen: "Allez Sprint",
+    material: "铝合金",
+    frame: "E5 铝合金车架 · Smartweld 焊接",
+    fork: "S-Works FACT 碳纤维前叉",
+    geoOverride: { stack: 550, reach: 390, headAngle: 73, seatAngle: 73.5, chainstay: 410, wheelbase: 985 },
+    colors: [
+      C("竞速红", "Race Red", "#d22630", "红"),
+      C("哑光黑", "Matte Black", "#15161a", "黑"),
+      C("湖蓝", "Lagoon Blue", "#2c7f9e", "蓝"),
+    ],
+    highlights: ["铝合金气动管型", "Tarmac 同源几何", "入门竞赛的高性价比选择"],
+    story: "Allez Sprint 把 Tarmac 的竞赛几何下放到铝合金车架，是很多车手的第一台“真正快”的公路车。",
+    builds: [
+      B(2026, "Sprint 105 Di2", 19990, 8.1, "Shimano 105 Di2 R7170", "DT Swiss PR 1600", { popularity: 75 }),
+      B(2024, "Sport 105", 8990, 9.2, "Shimano 105 R7000", "DT Swiss PR 1600", { popularity: 70 }),
+    ],
+  }),
+  roadFamily("Specialized", "Diverge", {
+    disc: "gravel", years: [2023, 2026], gen: "Diverge 3",
+    frame: "FACT 11r 碳纤维车架 · Future Shock 2.0",
+    fork: "S-Works FACT 11r 全碳前叉",
+    geoOverride: { stack: 610, reach: 385, headAngle: 71.5, seatAngle: 73.5, chainstay: 432, wheelbase: 1035 },
+    colors: [
+      C("沙漠棕", "Desert Sand", "#a38a68", "棕"),
+      C("森林绿", "Forest Green", "#2d4a3a", "绿"),
+      C("石墨黑", "Graphite", "#2b2d31", "黑"),
+      C("落日橙", "Sunset Orange", "#c9602f", "橙"),
+    ],
+    highlights: ["Future Shock 2.0 避震", "47mm 胎容与 SWAT 储物", "全地形长距离几何"],
+    story: "Diverge 是 gravel 世界的瑞士军刀：能装 47c 胎、能塞下 SWAT 储物、还能在碎石路上保持公路车的效率。",
+    builds: [
+      B(2026, "S-Works STR", 84990, 8.5, "SRAM Force XPLR AXS", "Roval Rapide CL II", { popularity: 82 }),
+      B(2025, "Pro", 52990, 9.2, "Shimano GRX RX822", "Roval C38", { popularity: 76 }),
+      B(2024, "Comp", 24990, 10.1, "Shimano GRX RX820", "DT Swiss PR 1600", { popularity: 71 }),
+    ],
+  }),
+
+  /* ───────────────────────── Trek ───────────────────────── */
+  roadFamily("Trek", "Madone Gen 8", {
+    disc: "aero", years: [2024, 2026], gen: "Gen 8",
+    frame: "OCLV 900 碳纤维车架 · IsoFlow",
+    fork: "Madone 全碳气动前叉",
+    geoOverride: { stack: 551, reach: 391, headAngle: 73, seatAngle: 73.5, chainstay: 410, wheelbase: 990 },
+    colors: [
+      C("碳烟黑", "Carbon Smoke", "#1a1c1f", "黑"),
+      C("星舰银", "Argent Silver", "#b9bec4", "银"),
+      C("电光蓝", "Electric Blue", "#1d5bd6", "蓝"),
+      C("岩浆红", "Molten Red", "#b31f2b", "红"),
+    ],
+    highlights: ["IsoFlow 座管开孔气动结构", "第 8 代合并 Émonda 轻量基因", "OCLV 900 顶级碳布"],
+    story: "Madone Gen 8 把 Émonda 的轻量和 Madone 的气动合进同一副车架，Trek 称它为“一车通吃”的新世代竞赛平台。",
+    builds: [
+      B(2026, "SLR 9 Gen 8", 92800, 7.05, "Shimano Dura-Ace Di2 R9270", "Bontrager Aeolus RSL 51", { popularity: 96 }),
+      B(2025, "SLR 7 Ultegra Di2", 78800, 7.6, "Shimano Ultegra Di2 R8170", "Bontrager Aeolus Pro 51", { popularity: 90 }),
+      B(2024, "SL 7 105 Di2", 48800, 8.6, "Shimano 105 Di2 R7170", "Bontrager Aeolus Pro 51", { popularity: 84 }),
+    ],
+  }),
+  roadFamily("Trek", "Domane", {
+    disc: "endurance", years: [2023, 2026], gen: "Gen 4",
+    frame: "OCLV 800 碳纤维车架 · IsoSpeed 断开器",
+    fork: "Domane 全碳前叉",
+    geoOverride: { stack: 591, reach: 380, headAngle: 71.9, seatAngle: 73.5, chainstay: 420, wheelbase: 1008 },
+    colors: [
+      C("深墨绿", "Deep Olive", "#37402f", "绿"),
+      C("珍珠白", "Pearl White", "#e3e1da", "白"),
+      C("海军蓝", "Navy Blue", "#1b2c47", "蓝"),
+      C("酒红", "Merlot", "#5e1d28", "红"),
+    ],
+    highlights: ["后部 IsoSpeed 减震", "38mm 胎容", "超长距离舒适几何"],
+    story: "Domane 是 Trek 的耐力旗舰，IsoSpeed 让座管与车架解耦，在颠簸路面上给出一种“车在替你呼吸”的顺从感。",
+    builds: [
+      B(2026, "SLR 9 AXS", 108000, 7.5, "SRAM RED AXS", "Bontrager Aeolus RSL 51", { popularity: 82 }),
+      B(2025, "SL 7 Ultegra Di2", 43800, 9.0, "Shimano Ultegra Di2 R8170", "Bontrager Aeolus Pro 51", { popularity: 80 }),
+      B(2024, "SL 5 105", 26800, 9.8, "Shimano 105 R7000", "Bontrager Paradigm Comp", { popularity: 77 }),
+    ],
+  }),
+  roadFamily("Trek", "Émonda", {
+    disc: "climbing", years: [2023, 2026], gen: "Gen 3",
+    frame: "OCLV 900 碳纤维车架 · 轻量圆管",
+    fork: "Émonda 全碳前叉",
+    geoOverride: { stack: 541, reach: 386, headAngle: 72.8, seatAngle: 73.5, chainstay: 410, wheelbase: 982 },
+    colors: [
+      C("哑光黑", "Matte Deep Smoke", "#16181b", "黑"),
+      C("亮面红", "Viper Red", "#c21f30", "红"),
+      C("天青蓝", "Azure Blue", "#2f7fbf", "蓝"),
+    ],
+    highlights: ["轻量爬坡平台", "H1.5 竞赛几何", "可选 P1 定制涂装"],
+    story: "Émonda 是 Trek 对“轻”的执念：在 UCI 限重边缘反复削克，让每一次起身摇车都更直接。",
+    builds: [
+      B(2026, "SLR 9 AXS", 99800, 6.5, "SRAM RED AXS", "Bontrager Aeolus RSL 51", { popularity: 84 }),
+      B(2024, "SL 6 Ultegra Di2", 35800, 8.0, "Shimano Ultegra Di2 R8170", "Bontrager Aeolus Pro 51", { popularity: 78 }),
+    ],
+  }),
+  roadFamily("Trek", "Checkpoint", {
+    disc: "gravel", years: [2023, 2026], gen: "Gen 3",
+    frame: "OCLV 500 碳纤维车架 · 多用途安装位",
+    fork: "Checkpoint 全碳前叉",
+    geoOverride: { stack: 600, reach: 385, headAngle: 71.4, seatAngle: 73.3, chainstay: 435, wheelbase: 1040 },
+    colors: [
+      C("砾石灰", "Gravel Grey", "#777b76", "灰"),
+      C("森林绿", "Forest Green", "#2e4a37", "绿"),
+      C("砖红", "Brick Red", "#9d4a3b", "红"),
+    ],
+    highlights: ["45mm 胎容", "大量 bikepacking 安装位", "IsoSpeed 后部顺从"],
+    story: "Checkpoint 是为“骑到地图尽头”准备的：足够的胎容、足够的安装孔，以及 Trek 标志性的长距离舒适性。",
+    builds: [
+      B(2026, "SL 7 AXS", 42800, 9.2, "SRAM Force XPLR AXS", "Bontrager Aeolus Pro 51", { popularity: 74 }),
+      B(2024, "SL 5 GRX", 23800, 10.1, "Shimano GRX RX820", "Bontrager Paradigm Comp", { popularity: 70 }),
+    ],
+  }),
+
+  /* ───────────────────────── Giant ───────────────────────── */
+  roadFamily("Giant", "TCR Advanced", {
+    disc: "race", years: [2024, 2026], gen: "Gen 10",
+    frame: "Advanced SL 碳纤维车架 · 一体成型",
+    fork: "Advanced SL 全碳前叉",
+    geoOverride: { stack: 545, reach: 388, headAngle: 73, seatAngle: 73.5, chainstay: 405, wheelbase: 980 },
+    colors: [
+      C("星空黑", "Starless Black", "#111318", "黑"),
+      C("捷安特蓝", "Giant Blue", "#0055a5", "蓝"),
+      C("熔岩橙", "Lava Orange", "#d75a25", "橙"),
+      C("珍珠白", "Pearl White", "#e9e7df", "白"),
+    ],
+    highlights: ["第十代 TCR 轻量平台", "一体式座管与内走线", "同级最直接的踩踏刚性"],
+    story: "TCR 是公路车历史上的常青树。第十代车型在保留爬坡基因的同时，把气动和整合度补到现代竞赛标准。",
+    builds: [
+      B(2026, "Advanced SL 0 RED", 79800, 6.5, "SRAM RED AXS", "CADEX Max 40", { popularity: 90 }),
+      B(2025, "Advanced Pro 1 Ultegra", 36800, 7.5, "Shimano Ultegra Di2 R8170", "Giant SLR 1 40", { popularity: 86 }),
+      B(2024, "Advanced 2 105", 18800, 8.6, "Shimano 105 R7000", "Giant SLR 2 42", { popularity: 81 }),
+    ],
+  }),
+  roadFamily("Giant", "Propel", {
+    disc: "aero", years: [2023, 2026], gen: "Gen 3",
+    frame: "Advanced SL 碳纤维车架 · AeroSystem",
+    fork: "Propel 全碳气动前叉",
+    geoOverride: { stack: 548, reach: 394, headAngle: 73, seatAngle: 73, chainstay: 410, wheelbase: 992 },
+    colors: [
+      C("曜石黑", "Obsidian", "#14161a", "黑"),
+      C("竞速蓝", "Racing Blue", "#0a4d9c", "蓝"),
+      C("银灰", "Silver Grey", "#a4a9ad", "银"),
+    ],
+    highlights: ["AeroSystem 管型优化", "整合式把组与座管", "风洞与实车双重验证"],
+    story: "Propel 是 Giant 的气动答案：把冲刺火车的效率做成一台日常也能骑快的车。",
+    builds: [
+      B(2026, "Advanced SL 0 Dura-Ace", 75800, 7.0, "Shimano Dura-Ace Di2 R9270", "Giant SLR 0 40", { popularity: 84 }),
+      B(2025, "Advanced Pro 1 Ultegra", 39800, 7.9, "Shimano Ultegra Di2 R8170", "Giant SLR 1 40", { popularity: 79 }),
+      B(2024, "Advanced 2 105", 19800, 8.9, "Shimano 105 R7000", "Giant SLR 2 42", { popularity: 74 }),
+    ],
+  }),
+  roadFamily("Giant", "Defy", {
+    disc: "endurance", years: [2023, 2026], gen: "Gen 5",
+    frame: "Advanced 碳纤维车架 · D-Fuse 座管",
+    fork: "Defy 全碳前叉",
+    geoOverride: { stack: 595, reach: 378, headAngle: 71.8, seatAngle: 73.5, chainstay: 420, wheelbase: 1010 },
+    colors: [
+      C("石墨黑", "Graphite", "#2b2e33", "黑"),
+      C("雾霾蓝", "Mist Blue", "#6b7f92", "蓝"),
+      C("森林绿", "Forest Green", "#385442", "绿"),
+    ],
+    highlights: ["D-Fuse 减震座管", "35mm 胎容", "长距离耐力几何"],
+    story: "Defy 不追求赛道上的最后一瓦，而是让 200 公里之后你仍然愿意再骑一段。",
+    builds: [
+      B(2026, "Advanced Pro 1 Ultegra", 32800, 7.8, "Shimano Ultegra Di2 R8170", "Giant SLR 1 40", { popularity: 77 }),
+      B(2024, "Advanced 2 105", 15800, 8.9, "Shimano 105 R7000", "Giant P-R2", { popularity: 73 }),
+    ],
+  }),
+  roadFamily("Giant", "Revolt", {
+    disc: "gravel", years: [2023, 2026], gen: "Gen 2",
+    frame: "Advanced 碳纤维车架 · 可调后轴",
+    fork: "Revolt 全碳前叉",
+    geoOverride: { stack: 605, reach: 380, headAngle: 71.3, seatAngle: 73.5, chainstay: 435, wheelbase: 1040 },
+    colors: [
+      C("荒野绿", "Wilderness Green", "#4d5a3c", "绿"),
+      C("沙丘棕", "Dune Brown", "#9a7d5c", "棕"),
+      C("金属黑", "Metallic Black", "#1b1d20", "黑"),
+    ],
+    highlights: ["Flip Chip 后轴可调", "50mm 胎容", "Gravel 专用几何"],
+    story: "Revolt 用可调后轴和充足的胎容，把一台车变成公路、碎石、轻越野三种性格。",
+    builds: [
+      B(2026, "Advanced Pro 1 GRX", 32800, 8.3, "Shimano GRX RX822", "Giant SLR 1 40", { popularity: 75 }),
+      B(2024, "Advanced 2 GRX", 16800, 9.3, "Shimano GRX RX820", "Giant P-R2", { popularity: 71 }),
+    ],
+  }),
+
+  /* ───────────────────────── Canyon ───────────────────────── */
+  roadFamily("Canyon", "Ultimate", {
+    disc: "climbing", years: [2024, 2026], gen: "CFR",
+    frame: "CFR 碳纤维车架 · 轻量竞赛平台",
+    fork: "Ultimate CFR 全碳前叉",
+    geoOverride: { stack: 545, reach: 389, headAngle: 73.2, seatAngle: 73.5, chainstay: 410, wheelbase: 983 },
+    colors: [
+      C("峡谷黑", "Canyon Black", "#101214", "黑"),
+      C("竞速红", "Race Red", "#c31f2c", "红"),
+      C("冰川白", "Glacier White", "#e3e4df", "白"),
+      C("深蓝", "Deep Blue", "#1a2c4d", "蓝"),
+    ],
+    highlights: ["CFR 顶级轻量碳布", "一体式 CP0018 座舱", "爬坡与综合路况全能"],
+    story: "Ultimate 是 Canyon 的爬坡名片：轻、硬、直接，同时在最新一代补上了气动细节和整合式座舱。",
+    builds: [
+      B(2026, "CFR Di2", 74900, 6.7, "Shimano Dura-Ace Di2 R9270", "DT Swiss ARC 1100 Dicut", { popularity: 88 }),
+      B(2025, "CF SLX 8 Di2", 42900, 7.5, "Shimano Ultegra Di2 R8170", "DT Swiss ERC 1400", { popularity: 84 }),
+      B(2024, "CF SL 7", 24900, 8.3, "Shimano 105 R7000", "DT Swiss PR 1600", { popularity: 79 }),
+    ],
+  }),
+  roadFamily("Canyon", "Aeroad", {
+    disc: "aero", years: [2023, 2026], gen: "CFR",
+    frame: "CFR 碳纤维车架 · 气动管型",
+    fork: "Aeroad CFR 全碳前叉",
+    geoOverride: { stack: 550, reach: 393, headAngle: 73, seatAngle: 73.5, chainstay: 410, wheelbase: 990 },
+    colors: [
+      C(" stealth 黑", "Stealth Black", "#0f1113", "黑"),
+      C("电光蓝", "Electric Blue", "#1655c9", "蓝"),
+      C("熔岩红", "Lava Red", "#be1f2a", "红"),
+    ],
+    highlights: ["CFR 气动平台", "PACE 一体式把组", "风洞优化的前叉与座管"],
+    story: "Aeroad 把“气动”做成一种视觉语言：宽大的五通、深切的管型、和一条几乎水平的上管。",
+    builds: [
+      B(2026, "CFR AXS", 55600, 6.9, "SRAM RED AXS", "DT Swiss ARC 1100 55", { popularity: 89 }),
+      B(2025, "CF SLX 8 Di2", 44900, 7.9, "Shimano Ultegra Di2 R8170", "DT Swiss ERC 1400", { popularity: 85 }),
+      B(2024, "CF SL 7", 26900, 8.6, "Shimano 105 R7000", "DT Swiss PR 1600", { popularity: 80 }),
+    ],
+  }),
+  roadFamily("Canyon", "Endurace", {
+    disc: "endurance", years: [2023, 2026], gen: "CF",
+    frame: "CF 碳纤维车架 · VCLS 减震",
+    fork: "Endurace 全碳前叉",
+    geoOverride: { stack: 590, reach: 378, headAngle: 72, seatAngle: 73.5, chainstay: 420, wheelbase: 1008 },
+    colors: [
+      C("沙石灰", "Sand Grey", "#8b8578", "灰"),
+      C("深海蓝", "Deep Sea", "#1c3446", "蓝"),
+      C("橄榄绿", "Olive", "#4d5339", "绿"),
+    ],
+    highlights: ["VCLS 分体座管", "35mm 胎容", "长途舒适几何"],
+    story: "Endurace 是 Canyon 对“快得舒服”的理解：不牺牲效率，但把长途的疲劳曲线拉平。",
+    builds: [
+      B(2026, "CF SLX 8 Di2", 36900, 7.9, "Shimano Ultegra Di2 R8170", "DT Swiss ERC 1400", { popularity: 78 }),
+      B(2024, "CF SL 7", 19900, 8.8, "Shimano 105 R7000", "DT Swiss PR 1600", { popularity: 74 }),
+    ],
+  }),
+  roadFamily("Canyon", "Grail", {
+    disc: "gravel", years: [2023, 2026], gen: "CF",
+    frame: "CF 碳纤维车架 · Grail 双把位",
+    fork: "Grail 全碳前叉",
+    geoOverride: { stack: 605, reach: 385, headAngle: 71.5, seatAngle: 73.5, chainstay: 430, wheelbase: 1035 },
+    colors: [
+      C("沙漠黄", "Desert Yellow", "#c7a24a", "黄"),
+      C("森林绿", "Forest Green", "#354a3a", "绿"),
+      C("石墨黑", "Graphite", "#2c2e31", "黑"),
+    ],
+    highlights: ["Hover Bar 双层把", "42mm 胎容", "Gravel 专属几何"],
+    story: "Grail 的标志是那根 Hover Bar：上下两层把位在碎石路上提供额外的减震与握持选择。",
+    builds: [
+      B(2026, "CF SLX 8 GRX", 37900, 8.1, "Shimano GRX RX822", "DT Swiss ERC 1400", { popularity: 76 }),
+      B(2024, "CF SL 7 GRX", 20900, 9.1, "Shimano GRX RX820", "DT Swiss PR 1600", { popularity: 72 }),
+    ],
+  }),
+
+  /* ───────────────────────── Pinarello ───────────────────────── */
+  roadFamily("Pinarello", "Dogma F", {
+    disc: "aero", years: [2023, 2026], gen: "Dogma F",
+    frame: "Torayca T1100 1K 碳纤维车架 · 非对称结构",
+    fork: "Onda F 全碳前叉",
+    geoOverride: { stack: 550, reach: 393, headAngle: 72.8, seatAngle: 73.5, chainstay: 410, wheelbase: 992 },
+    colors: [
+      C("环法蓝", "Tour Blue", "#173a7a", "蓝"),
+      C("黑武士", "Black on Black", "#121316", "黑"),
+      C("竞速红", "Race Red", "#b51f2b", "红"),
+      C("星空银", "Starry Silver", "#a7abb0", "银"),
+    ],
+    highlights: ["非对称车架设计", "TiCR 全内走线", "环法冠军血统"],
+    story: "Dogma F 是 Pinarello 的旗舰竞赛车，非对称车架与 Onda 前叉让它在一众气动车中拥有极高的辨识度。",
+    builds: [
+      B(2026, "Dura-Ace Di2", 113400, 6.8, "Shimano Dura-Ace Di2 R9270", "Princeton Peak 4550", { popularity: 95 }),
+      B(2025, "Ultegra Di2", 92800, 7.4, "Shimano Ultegra Di2 R8170", "Most Ultra 50", { popularity: 88 }),
+    ],
+  }),
+  roadFamily("Pinarello", "Prince", {
+    disc: "race", years: [2023, 2026], gen: "Prince",
+    frame: "T900 碳纤维车架 · 竞赛几何",
+    fork: "Onda 全碳前叉",
+    geoOverride: { stack: 555, reach: 390, headAngle: 73, seatAngle: 73.5, chainstay: 410, wheelbase: 990 },
+    colors: [
+      C("意大利蓝", "Italian Blue", "#1e4f9c", "蓝"),
+      C("哑光黑", "Matte Black", "#17181b", "黑"),
+      C("法拉利红", "Ferrari Red", "#c8102e", "红"),
+    ],
+    highlights: ["Dogma 同源气动轮廓", "T900 碳纤维", "更亲民的意大利竞赛车"],
+    story: "Prince 把 Dogma 的气动轮廓下放到更易触及的价位，是进入 Pinarello 世界最合理的一步。",
+    builds: [
+      B(2026, "Ultegra Di2", 59800, 7.8, "Shimano Ultegra Di2 R8170", "Fulcrum Speed 42", { popularity: 79 }),
+      B(2024, "105 Di2", 39800, 8.6, "Shimano 105 Di2 R7170", "Fulcrum Speed 42", { popularity: 74 }),
+    ],
+  }),
+  roadFamily("Pinarello", "X5", {
+    disc: "endurance", years: [2023, 2025], gen: "X5",
+    frame: "T600 碳纤维车架 · 耐力几何",
+    fork: "Onda 全碳前叉",
+    geoOverride: { stack: 585, reach: 380, headAngle: 72, seatAngle: 73.5, chainstay: 418, wheelbase: 1005 },
+    colors: [
+      C("石墨黑", "Graphite", "#2a2c2f", "黑"),
+      C("威尼斯蓝", "Venetian Blue", "#2b5f8a", "蓝"),
+      C("象牙白", "Ivory", "#e2ded1", "白"),
+    ],
+    highlights: ["耐力舒适几何", "T600 碳纤维", "意大利手工涂装"],
+    story: "X5 是 Pinarello 的耐力入口：保留品牌的比例与线条，但把骑行姿势放松，适合长距离与日常。",
+    builds: [
+      B(2025, "105 Di2", 27800, 8.8, "Shimano 105 Di2 R7170", "Fulcrum Speed 42", { popularity: 68 }),
+    ],
+  }),
+
+  /* ───────────────────────── Colnago ───────────────────────── */
+  roadFamily("Colnago", "V4Rs", {
+    disc: "race", years: [2023, 2026], gen: "V4Rs",
+    frame: "Colnago 高模量碳纤维车架 · 竞赛平台",
+    fork: "V4Rs 全碳前叉",
+    geoOverride: { stack: 548, reach: 390, headAngle: 73, seatAngle: 73.5, chainstay: 410, wheelbase: 988 },
+    colors: [
+      C("梅花红", "Colnago Red", "#c8102e", "红"),
+      C("碳黑", "Carbon Black", "#181a1d", "黑"),
+      C("亚得里亚蓝", "Adriatic Blue", "#1c4c8a", "蓝"),
+      C("冠军白", "Champion White", "#e7e4da", "白"),
+    ],
+    highlights: ["波加查同款竞赛平台", "T47 螺纹中轴", "一体式座管与内走线"],
+    story: "V4Rs 是 Colnago 为现代竞赛重新设计的轻量气动车，梅花管型与 T47 中轴保留了品牌的技术坚持。",
+    builds: [
+      B(2026, "Dura-Ace Di2", 97200, 6.62, "Shimano Dura-Ace Di2 R9270", "Enve SES 4.5", { popularity: 93 }),
+      B(2025, "Ultegra Di2", 79800, 7.6, "Shimano Ultegra Di2 R8170", "Fulcrum Speed 42", { popularity: 86 }),
+    ],
+  }),
+  roadFamily("Colnago", "C68", {
+    disc: "endurance", years: [2022, 2026], gen: "C68",
+    frame: "模块化碳纤维车架 · 意大利手工",
+    fork: "C68 全碳前叉",
+    geoOverride: { stack: 580, reach: 382, headAngle: 72, seatAngle: 73.5, chainstay: 415, wheelbase: 1000 },
+    colors: [
+      C("经典梅花", "Classic Colnago", "#c8102e", "红"),
+      C("水泥灰", "Cement Grey", "#7a7c7a", "灰"),
+      C("皇家蓝", "Royal Blue", "#1b3a6b", "蓝"),
+      C("香槟金", "Champagne", "#b59b63", "金"),
+    ],
+    highlights: ["模块化车架结构", "意大利手工制造", "经典与现代化的平衡"],
+    story: "C68 是 Colnago 对传统的现代化翻译：模块化结构、T47 中轴、圆润管型，骑起来仍像一台老派意大利车。",
+    builds: [
+      B(2026, "Record 12", 98000, 7.8, "Campagnolo Record 12", "Campagnolo Bora Ultra WTO 45", { popularity: 82 }),
+      B(2024, "Ultegra Di2", 66800, 8.3, "Shimano Ultegra Di2 R8170", "Fulcrum Speed 42", { popularity: 77 }),
+    ],
+  }),
+  roadFamily("Colnago", "G3-X", {
+    disc: "gravel", years: [2023, 2025], gen: "G3-X",
+    frame: "Colnago 碳纤维车架 · Gravel 几何",
+    fork: "G3-X 全碳前叉",
+    geoOverride: { stack: 610, reach: 380, headAngle: 71, seatAngle: 73.5, chainstay: 435, wheelbase: 1045 },
+    colors: [
+      C("沙漠红", "Desert Red", "#a33a2b", "红"),
+      C("橄榄绿", "Olive", "#4e5638", "绿"),
+      C("碳黑", "Carbon Black", "#1a1c1f", "黑"),
+    ],
+    highlights: ["45mm 胎容", "Gravel 专用几何", "意大利手工涂装"],
+    story: "G3-X 把 Colnago 的竞赛比例带到碎石路，车架更松弛，但转向依旧精准。",
+    builds: [
+      B(2025, "GRX Di2", 54800, 8.8, "Shimano GRX RX822", "Fulcrum Speed 42", { popularity: 71 }),
+    ],
+  }),
+];

@@ -1,0 +1,628 @@
+{
+ "updated": "2026-11-10",
+ "bikes": [
+  {
+   "id": "tarmac-sl8",
+   "disc": "road",
+   "brand": "Specialized",
+   "family": "Tarmac SL8",
+   "build": "S-Works Tarmac SL8 – Shimano Dura-Ace Di2",
+   "year": 2026,
+   "cny": 99990,
+   "cnySrc": "https://www.specialized.com.cn/cn/zh/s-works-tarmac-sl8---shimano-dura-ace-di2/p/4221536",
+   "usd": 13499.99,
+   "usdSrc": "https://www.specialized.com/us/en/s-works-tarmac-sl8-shimano-dura-ace-di2/p/4221553",
+   "material": "FACT 12R 碳纤维",
+   "groupset": "Shimano Dura-Ace Di2 12s（4iiii 双边功率计）",
+   "wheels": "Roval Rapide CLX III 碳纤维（前51mm）",
+   "weight": 6.67,
+   "wsize": "56cm",
+   "stack": 565,
+   "reach": 395,
+   "size": "56",
+   "geomSrc": "https://www.specialized.com/us/en/s-works-tarmac-sl8-shimano-dura-ace-di2/p/4221553",
+   "colors": [
+    "Gloss Fjord Metallic",
+    "Gloss Solidity / Red To Black Pearl"
+   ],
+   "hi": [
+    "Speed Sniffer 鼻锥，40km 比 SL7 快 16.6s",
+    "刚性重量比 +33%，32mm 胎宽"
+   ],
+   "src": [
+    "https://www.specialized.com/us/en/s-works-tarmac-sl8-shimano-dura-ace-di2/p/4221553"
+   ]
+  },
+  {
+   "id": "madone",
+   "disc": "road",
+   "brand": "Trek",
+   "family": "Madone Gen 8",
+   "build": "Madone SLR 9 Gen 8",
+   "year": 2026,
+   "usd": 12899.99,
+   "usdSrc": "https://www.trekbikes.com/us/en_US/bikes/road-bikes/performance-road-bikes/madone/f/F213/madone-slr-9-gen-8/46707/",
+   "material": "900 Series OCLV Carbon",
+   "groupset": "Shimano Dura-Ace Di2 12s",
+   "wheels": "Bontrager Aeolus RSL 51 碳纤维",
+   "weight": 7.05,
+   "wsize": "ML",
+   "stack": 545,
+   "reach": 384,
+   "size": "M",
+   "geomSrc": "https://ridedna.ai/bikes/trek/madone-slr/2026",
+   "colors": [
+    "Matte Deep Smoke"
+   ],
+   "hi": [
+    "IsoFlow 座舱开孔：降阻+顺应性",
+    "与 Émonda 合并，一车兼顾气动与轻量"
+   ],
+   "src": [
+    "https://www.trekbikes.com/us/en_US/bikes/road-bikes/performance-road-bikes/madone/f/F213/madone-slr-9-gen-8/46707/",
+    "https://ridedna.ai/bikes/trek/madone-slr/2026"
+   ]
+  },
+  {
+   "id": "tcr",
+   "disc": "road",
+   "brand": "Giant",
+   "family": "TCR Advanced SL",
+   "build": "TCR Advanced SL 0 (RED)",
+   "year": 2026,
+   "cny": 79800,
+   "cnySrc": "https://www.giant.com.cn/index.php/index/gear_view.html?id=29",
+   "usd": 13500,
+   "usdSrc": "https://velopedia.com/bikes/giant/2026/tcr-advanced-sl-0-red-900000161/",
+   "material": "Advanced SL 高模量碳纤维（一体座管）",
+   "groupset": "SRAM RED AXS E1（Quarq 功率计）",
+   "wheels": "CADEX Max 40 碳辐条轮组",
+   "weight": 6.5,
+   "wsize": "M（厂商宣称）",
+   "stack": 546,
+   "reach": 388,
+   "size": "M",
+   "geomSrc": "https://ridedna.ai/bikes/giant/tcr-advanced/2026",
+   "colors": [
+    "Turbo Teal"
+   ],
+   "hi": [
+    "第十代 TCR：车架/轮组/座舱系统化整合",
+    "M 码裸架 690g（厂商数据）"
+   ],
+   "src": [
+    "https://www.giant.com.cn/index.php/index/gear_view.html?id=29",
+    "https://velopedia.com/bikes/giant/2026/tcr-advanced-sl-0-red-900000161/"
+   ]
+  },
+  {
+   "id": "aeroad",
+   "disc": "road",
+   "brand": "Canyon",
+   "family": "Aeroad CFR",
+   "build": "Aeroad CFR AXS",
+   "year": 2026,
+   "cny": 55600,
+   "cnySrc": "https://www.canyon.com.cn/en-cn/road-bikes/aero-bikes/aeroad/",
+   "usd": 8399,
+   "usdSrc": "https://www.canyon.com/en-us/road-bikes/aero-bikes/aeroad/cfr/aeroad-cfr-axs/4040.html",
+   "material": "CFR 碳纤维（车架 960g）",
+   "groupset": "SRAM RED AXS（含功率计）",
+   "wheels": "DT Swiss ARC 1100 55mm 碳纤维",
+   "weight": 6.9,
+   "wsize": "M",
+   "stack": 560,
+   "reach": 393,
+   "size": "M",
+   "geomSrc": "https://www.canyon.com/en-us/road-bikes/aero-bikes/aeroad/cfr/aeroad-cfr-axs/4040.html",
+   "colors": [
+    "Sparkle Stealth",
+    "Movistar"
+   ],
+   "hi": [
+    "TOUR 风洞 204W@45km/h，称“peloton 最快”",
+    "PACE 座舱可快速调整"
+   ],
+   "src": [
+    "https://www.canyon.com/en-us/road-bikes/aero-bikes/aeroad/cfr/aeroad-cfr-axs/4040.html",
+    "https://www.canyon.com.cn/en-cn/road-bikes/aero-bikes/aeroad/"
+   ]
+  },
+  {
+   "id": "dogma-f",
+   "disc": "road",
+   "brand": "Pinarello",
+   "family": "Dogma F",
+   "build": "Dogma F – Dura-Ace Di2",
+   "year": 2026,
+   "usd": 15750,
+   "usdSrc": "https://contenderbicycles.com/products/pinarello-dogma-f-dura-ace-di2-2026",
+   "material": "T1100 1K Dream Carbon",
+   "groupset": "Shimano Dura-Ace Di2",
+   "wheels": "Princeton Peak 4550 碳纤维",
+   "weight": null,
+   "wsize": "",
+   "stack": 544,
+   "reach": 388,
+   "size": "540（≈M）",
+   "geomSrc": "https://ridedna.ai/bikes/pinarello/dogma-f",
+   "colors": [
+    "Luxter Grey Matt",
+    "Edge Crystal White"
+   ],
+   "hi": [
+    "非对称车架设计（Pinarello 标志）",
+    "ONDA Fork + ForkFlap 气动叉端"
+   ],
+   "src": [
+    "https://contenderbicycles.com/products/pinarello-dogma-f-dura-ace-di2-2026",
+    "https://ridedna.ai/bikes/pinarello/dogma-f"
+   ]
+  },
+  {
+   "id": "v4rs",
+   "disc": "road",
+   "brand": "Colnago",
+   "family": "V4Rs",
+   "build": "V4Rs – Dura-Ace Di2",
+   "year": 2026,
+   "usd": 13499,
+   "usdSrc": "https://99spokes.com/compare?bikes=colnago-v4rs-shimano-dura-ace-di2-2026",
+   "material": "V4Rs 单体碳纤维（485 码裸架 798g）",
+   "groupset": "Shimano Dura-Ace Di2",
+   "wheels": "（随整车配置，未核实）",
+   "weight": 6.62,
+   "wsize": "整车 14.6 lb（约6.62kg）",
+   "stack": 559,
+   "reach": 390,
+   "size": "510（≈M）",
+   "geomSrc": "https://ridedna.ai/bikes/colnago/v4rs/2026",
+   "colors": [
+    "Colnago Matt Black"
+   ],
+   "hi": [
+    "Tadej Pogačar 2024 环法/环意战车",
+    "车架 798g，CeramicSpeed SLT 头碗"
+   ],
+   "src": [
+    "https://www.colnago.com/en/premium-bikes/v4rs-bike/technical-specifications",
+    "https://ridedna.ai/bikes/colnago/v4rs/2026"
+   ]
+  },
+  {
+   "id": "s5",
+   "disc": "road",
+   "brand": "Cervélo",
+   "family": "S5",
+   "build": "S5 RED AXS",
+   "year": 2026,
+   "usd": 14500,
+   "usdSrc": "https://www.cervelo.com/en-US/bikes/s5",
+   "material": "Cervélo 碳纤维",
+   "groupset": "SRAM Red AXS E1",
+   "wheels": "Reserve 57TA/64TA + DT Swiss 180",
+   "weight": 6.74,
+   "wsize": "（厂商公布）",
+   "stack": 542,
+   "reach": 384,
+   "size": "54",
+   "geomSrc": "https://www.cervelo.com/en-US/bikes/s5",
+   "colors": [
+    "（未核实）"
+   ],
+   "hi": [
+    "V 型把立+分体把横，气动整合",
+    "BBright 五通、可调式座管夹"
+   ],
+   "src": [
+    "https://www.cervelo.com/en-US/bikes/s5",
+    "https://velopedia.com/bikes/cervelo/2026/s5-red-axs-1-900000019/"
+   ]
+  },
+  {
+   "id": "addict-rc",
+   "disc": "road",
+   "brand": "Scott",
+   "family": "Addict RC",
+   "build": "Addict RC Ultimate",
+   "year": 2026,
+   "usd": 13499.99,
+   "usdSrc": "https://www.scott-sports.com/us/en/product/scott-addict-rc-ultimate-bike?article=4283508570008",
+   "eur": 12999,
+   "eurSrc": "https://www.bikeexchange.nl/nl-NL/products/scott_addict_rc_ultimate_2026",
+   "material": "HMX SL 碳纤维",
+   "groupset": "SRAM Red AXS",
+   "wheels": "Syncros Capital SL 碳纤维",
+   "weight": 6.1,
+   "wsize": "（厂商公布）",
+   "stack": 544,
+   "reach": 395,
+   "size": "M/54",
+   "geomSrc": "https://ridedna.ai/bikes/scott/addict-rc/2026",
+   "colors": [
+    "Piano Black / Carbon Black"
+   ],
+   "hi": [
+    "Scott 史上最轻量产竞赛车（5.9–6.1kg）",
+    "全内走线 + 一体把"
+   ],
+   "src": [
+    "https://www.scott-sports.com/us/en/product/scott-addict-rc-ultimate-bike?article=4283508570008",
+    "https://ridedna.ai/bikes/scott/addict-rc/2026"
+   ]
+  },
+  {
+   "id": "reacto",
+   "disc": "road",
+   "brand": "Merida",
+   "family": "Reacto",
+   "build": "Reacto ONE（第五代顶配）",
+   "year": 2026,
+   "cny": 72800,
+   "cnySrc": "https://www.biketo.com/product/56171.html",
+   "material": "CF5 碳纤维（车架 950g）",
+   "groupset": "Shimano Dura-Ace Di2",
+   "wheels": "（随整车，未核实）",
+   "weight": 7.4,
+   "wsize": "M（媒体实测 Reacto ONE）",
+   "stack": 557,
+   "reach": 395,
+   "size": "M",
+   "geomSrc": "https://ridedna.ai/bikes/merida/reacto/2026",
+   "colors": [
+    "（未核实）"
+   ],
+   "hi": [
+    "TOUR 风洞 196W，第五代气动升级",
+    "32mm 胎宽，车架 950g"
+   ],
+   "src": [
+    "https://www.biketo.com/product/56171.html",
+    "https://ridedna.ai/bikes/merida/reacto/2026"
+   ]
+  },
+  {
+   "id": "supersix",
+   "disc": "road",
+   "brand": "Cannondale",
+   "family": "SuperSix EVO",
+   "build": "SuperSix EVO LAB71",
+   "year": 2026,
+   "cny": 109990,
+   "cnySrc": "https://www.cannondale.com/zh-cn/bikes/road/race/supersix-evo/supersix-evo-lab71",
+   "material": "Series 0 碳纤维（LAB71）",
+   "groupset": "SRAM Red AXS",
+   "wheels": "（随整车，未核实）",
+   "weight": null,
+   "wsize": "",
+   "stack": 546,
+   "reach": 388,
+   "size": "54",
+   "geomSrc": "https://ridedna.ai/bikes/cannondale/supersix-evo/2026",
+   "colors": [
+    "Burnt Pewter"
+   ],
+   "hi": [
+    "LAB71 顶级 Series 0 碳布",
+    "Delta 舵管整合、C1 Aero 40 把组"
+   ],
+   "src": [
+    "https://www.cannondale.com/zh-cn/bikes/road/race/supersix-evo/supersix-evo-lab71"
+   ]
+  },
+  {
+   "id": "epic-8",
+   "disc": "mtb",
+   "brand": "Specialized",
+   "family": "Epic 8",
+   "build": "S-Works Epic 8 SRAM XX SL AXS, RockShox Ultimate Flight Attendant",
+   "year": 2026,
+   "usd": 14999.99,
+   "usdSrc": "https://www.specialized.com/us/en/s-works-epic-8-sram-xx-sl-axs-rockshox-ultimate-flight-attendant/p/4221525",
+   "material": "S-Works FACT 12m 碳纤维（带碳纤维避震延伸座）",
+   "groupset": "SRAM XX SL Eagle AXS Transmission + RockShox Flight Attendant 电子避震",
+   "wheels": "（配置含碳轮，型号未核实）",
+   "weight": 10,
+   "wsize": "MD",
+   "stack": 598,
+   "reach": 450,
+   "size": "M",
+   "geomSrc": "https://www.specialized.com/us/en/s-works-epic-8-sram-xx-sl-axs-rockshox-ultimate-flight-attendant/p/4221525",
+   "colors": [
+    "Gloss Cyan Blue Pearl"
+   ],
+   "hi": [
+    "120mm 前后行程，SWAT 下管储物",
+    "Progressive XC Race Geometry，S-Works 车架 2.13kg"
+   ],
+   "src": [
+    "https://www.specialized.com/us/en/s-works-epic-8-sram-xx-sl-axs-rockshox-ultimate-flight-attendant/p/4221525",
+    "https://99spokes.com/bikes/specialized/2026/s-works-epic-8"
+   ]
+  },
+  {
+   "id": "supercaliber",
+   "disc": "mtb",
+   "brand": "Trek",
+   "family": "Supercaliber",
+   "build": "Supercaliber SLR 9.9 XX Flight Attendant Gen 2",
+   "year": 2026,
+   "usd": 14999.99,
+   "usdSrc": "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/cross-country-mountain-bikes/supercaliber/f/F314/supercaliber-slr-9-9-xx-flight-attendant-gen-2/58885/",
+   "material": "SLR OCLV Mountain Carbon（IsoStrut 一体式后避震）",
+   "groupset": "SRAM XX SL Eagle AXS Transmission + RockShox Flight Attendant（SID SL Ultimate 110mm 前叉 / SIDLuxe 后胆）",
+   "wheels": "Bontrager Kovee RSL，OCLV 碳纤维",
+   "weight": 10.28,
+   "wsize": "M",
+   "stack": null,
+   "reach": null,
+   "size": "M",
+   "geomSrc": "",
+   "colors": [
+    "Navy Smoke"
+   ],
+   "hi": [
+    "IsoStrut 结构：80mm 后行程、无转点",
+    "2026 线扩至 7 款（€3,999–13,999），含 Di2/Flight Attendant 版本"
+   ],
+   "src": [
+    "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/cross-country-mountain-bikes/supercaliber/f/F314/supercaliber-slr-9-9-xx-flight-attendant-gen-2/58885/",
+    "https://esmtb.com/gama-trek-supercaliber-2026-7-modelos-flight-attendant-shimano-electronico-todo-los-detalles"
+   ]
+  },
+  {
+   "id": "anthem",
+   "disc": "mtb",
+   "brand": "Giant",
+   "family": "Anthem",
+   "build": "Anthem Advanced SL 0",
+   "year": 2026,
+   "usd": 10500,
+   "usdSrc": "https://www.giant-bicycles.com/us/anthem-advanced-sl-0",
+   "eur": 9500,
+   "eurSrc": "https://www.giant-bicycles.com/de/anthem-advanced-sl-0",
+   "material": "Advanced SL 复合碳纤维（M 码车架 1530g）",
+   "groupset": "（未核实）",
+   "wheels": "（未核实）",
+   "weight": 10.6,
+   "wsize": "L（BIKE 实测，不含脚踏）",
+   "stack": null,
+   "reach": null,
+   "size": "M",
+   "geomSrc": "",
+   "colors": [
+    "（未核实）"
+   ],
+   "hi": [
+    "为 Alan Hatherly 夺得 2025 XCO 世锦赛而开发",
+    "FlexPoint Pro 半整合 120mm 后避震，车架较上代轻 89g、刚性重量比 +7.95%"
+   ],
+   "src": [
+    "https://www.giant-bicycles.com/us/anthem-advanced-sl-0",
+    "https://www.bike-magazin.de/en/cross-country-bikes/fast-like-the-cross-country-world-champion-the-giant-anthem-advanced-sl-0-in-the-bike-test/"
+   ]
+  },
+  {
+   "id": "lux",
+   "disc": "mtb",
+   "brand": "Canyon",
+   "family": "Lux World Cup",
+   "build": "Lux World Cup CFR XTR Di2",
+   "year": 2026,
+   "eur": 7999,
+   "eurSrc": "https://www.canyon.com/en-us/mountain-bikes/cross-country-bikes/lux/cfr/lux-world-cup-cfr-xtr-di2/4409.html",
+   "usd": null,
+   "usdSrc": "",
+   "material": "CFR 碳纤维（车架 1480g，M、不含后胆）",
+   "groupset": "Shimano XTR Di2 无线",
+   "wheels": "（配置含碳轮，型号未核实）",
+   "weight": 9.82,
+   "wsize": "M",
+   "stack": 597,
+   "reach": 455,
+   "size": "M",
+   "geomSrc": "https://www.canyon.com/en-us/mountain-bikes/cross-country-bikes/lux/cfr/lux-world-cup-cfr-xtr-di2/4409.html",
+   "colors": [
+    "Team"
+   ],
+   "hi": [
+    "车架 1480g，同级最轻全避震之一",
+    "120mm 前叉行程，5 尺码几何（Stack 595–620 / Reach 415–495）"
+   ],
+   "src": [
+    "https://www.canyon.com/en-us/mountain-bikes/cross-country-bikes/lux/cfr/lux-world-cup-cfr-xtr-di2/4409.html",
+    "https://bikerumor.com/2026-canyon-lux-world-cup-cfr-drops-in-on-more-travel-lower-weight-for-south-korea-wc/"
+   ]
+  },
+  {
+   "id": "blur",
+   "disc": "mtb",
+   "brand": "Santa Cruz",
+   "family": "Blur",
+   "build": "Blur X0 AXS RSV Carbon CC",
+   "year": 2026,
+   "eur": 9499,
+   "eurSrc": "https://www.santacruzbicycles.com/en-it/collections/currently-in-stock?page=38",
+   "usd": null,
+   "usdSrc": "",
+   "material": "Carbon CC",
+   "groupset": "SRAM X0 AXS",
+   "wheels": "Reserve（RSV 碳轮）",
+   "weight": null,
+   "wsize": "",
+   "stack": null,
+   "reach": null,
+   "size": "M",
+   "geomSrc": "",
+   "colors": [
+    "（未核实）"
+   ],
+   "hi": [
+    "XC 竞赛平台，VPP 后避震",
+    "Carbon CC 顶级碳布"
+   ],
+   "src": [
+    "https://www.santacruzbicycles.com/en-it/collections/currently-in-stock?page=38"
+   ]
+  },
+  {
+   "id": "sb140",
+   "disc": "mtb",
+   "brand": "Yeti",
+   "family": "SB140",
+   "build": "SB140 T3 X0 AXS Transmission",
+   "year": 2026,
+   "usd": 9300,
+   "usdSrc": "https://yeticycles.com/en-us/bikes/sb140",
+   "eur": 10200,
+   "eurSrc": "https://yeticycles.com/de-at/bikes/sb140",
+   "material": "TURQ Carbon",
+   "groupset": "SRAM X0 Eagle AXS Transmission，Maven Silver 刹车",
+   "wheels": "（未核实）",
+   "weight": null,
+   "wsize": "",
+   "stack": null,
+   "reach": null,
+   "size": "M",
+   "geomSrc": "",
+   "colors": [
+    "（未核实）"
+   ],
+   "hi": [
+    "140mm Switch Infinity 后行程 / 160mm Fox Factory 36 Grip X2 前叉",
+    "TURQ 碳纤维车架"
+   ],
+   "src": [
+    "https://yeticycles.com/en-us/bikes/sb140",
+    "https://www.probikesupply.com/products/2025-yeti-sb140-lunch-ride-turq-series-29-complete-mountain-bike-lr-t3-x0-transmission-build"
+   ]
+  },
+  {
+   "id": "mach4sl",
+   "disc": "mtb",
+   "brand": "Pivot",
+   "family": "Mach 4 SL",
+   "build": "Mach 4 SL Team XTR",
+   "year": 2026,
+   "usd": 9899,
+   "usdSrc": "https://www.competitivecyclist.com/pivot-mach-4-sl-team-xtr-carbon-wheel-mountain-bike",
+   "material": "碳纤维",
+   "groupset": "Shimano XTR",
+   "wheels": "碳纤维轮组",
+   "weight": null,
+   "wsize": "",
+   "stack": null,
+   "reach": null,
+   "size": "M",
+   "geomSrc": "",
+   "colors": [
+    "Sea Foam Green"
+   ],
+   "hi": [
+    "115mm 后行程 XC 平台，UDH 尾钩",
+    "Team XTR 顶配"
+   ],
+   "src": [
+    "https://www.competitivecyclist.com/pivot-mach-4-sl-team-xtr-carbon-wheel-mountain-bike",
+    "https://katalog.bikeworld.pl/2026/web/produkt/rowery_gorskie/xc_down_country/pivot/90830/mach_4_sl_team_xtr_di2"
+   ]
+  },
+  {
+   "id": "spark-rc",
+   "disc": "mtb",
+   "brand": "Scott",
+   "family": "Spark RC",
+   "build": "Spark RC World Cup（整车配置待核实；已核实车架组）",
+   "year": 2026,
+   "usd": 5999.99,
+   "usdSrc": "https://www.scott-sports.com/us/en/products/bike-bikes-mtb-cross-country-spark-rc",
+   "eur": 4999,
+   "eurSrc": "https://www.scott-sports.com/nl/en/product/scott-spark-rc-world-cup-hmx-frame-fork",
+   "material": "HMX 碳纤维",
+   "groupset": "（未核实）",
+   "wheels": "（未核实）",
+   "weight": null,
+   "wsize": "",
+   "stack": null,
+   "reach": null,
+   "size": "M",
+   "geomSrc": "",
+   "colors": [
+    "（未核实）"
+   ],
+   "hi": [
+    "集成式后避震、隐藏式走线",
+    "RC World Cup 为竞赛级平台（上面标注价格为车架组，非整车）"
+   ],
+   "src": [
+    "https://www.scott-sports.com/us/en/products/bike-bikes-mtb-cross-country-spark-rc",
+    "https://www.scott-sports.com/nl/en/product/scott-spark-rc-world-cup-hmx-frame-fork"
+   ]
+  },
+  {
+   "id": "one-sixty",
+   "disc": "mtb",
+   "brand": "Merida",
+   "family": "One-Sixty",
+   "build": "One-Sixty 8000",
+   "year": 2026,
+   "eur": 7609,
+   "eurSrc": "https://bikko.bike/en/bicycles/29er-bicycles/bicycle-merida-one-sixty-8000-2026-halo-greengrey",
+   "usd": null,
+   "usdSrc": "",
+   "material": "（未核实）",
+   "groupset": "（未核实）",
+   "wheels": "（未核实）",
+   "weight": null,
+   "wsize": "",
+   "stack": null,
+   "reach": null,
+   "size": "M",
+   "geomSrc": "",
+   "colors": [
+    "Halo Green（灰）",
+    "Warm Slate Grey（金黑）"
+   ],
+   "hi": [
+    "Enduro 平台，29/27.5 混轮可选",
+    "8000 为次顶配（99spokes 英国 £6,600）"
+   ],
+   "src": [
+    "https://bikko.bike/en/bicycles/29er-bicycles/bicycle-merida-one-sixty-8000-2026-halo-greengrey",
+    "https://99spokes.com/en/bikes?subcategory=enduro&family=merida-one-sixty"
+   ]
+  },
+  {
+   "id": "meta-sx",
+   "disc": "mtb",
+   "brand": "Commencal",
+   "family": "Meta SX",
+   "build": "Meta SX V5 Signature",
+   "year": 2026,
+   "eur": 5950,
+   "eurSrc": "https://www.commencal.com/on/demandware.store/Sites-commencal-eu-Site/en_FR/Product-ShowQuickView?pid=BT5MSXV5SGEU1",
+   "usd": null,
+   "usdSrc": "",
+   "material": "（未核实，V5 铝合金/碳纤维区分待查）",
+   "groupset": "（未核实）",
+   "wheels": "（未核实）",
+   "weight": null,
+   "wsize": "",
+   "stack": null,
+   "reach": null,
+   "size": "M",
+   "geomSrc": "https://tech.commencal.com/m/images/geo/META%20V5-SX-GEO-fond-blanc.jpg",
+   "colors": [
+    "Pure White"
+   ],
+   "hi": [
+    "混轮（29/27.5）enduro 平台",
+    "官网提供几何图（图片形式，未逐项录入）"
+   ],
+   "src": [
+    "https://www.commencal.com/ad/en/bikes/bikes/enduro/meta%20sx%20v5/BT5MSXV5EEU1M.html?lang=en_AD",
+    "https://commencal-store.co.za/products/commencal-meta-sx-v5-signature-pure-white-2026"
+   ]
+  }
+ ]
+}

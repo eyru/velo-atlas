@@ -1,0 +1,21 @@
+const st=globalThis["set"+"Timeout"]; const wait=(ms)=>new Promise(r=>st(r,ms));
+class C{constructor(u){this.u=u;this.i=0;this.p=new Map();}async open(){this.ws=new WebSocket(this.u);await new Promise((res,rej)=>{this.ws.onopen=res;this.ws.onerror=rej;});this.ws.onmessage=(e)=>{const m=JSON.parse(e.data);if(m.id){const p=this.p.get(m.id);if(p){this.p.delete(m.id);m.error?p.reject(new Error(JSON.stringify(m.error))):p.resolve(m.result);}}};}send(method,params={}){const id=++this.i;return new Promise((resolve,reject)=>{this.p.set(id,{resolve,reject});this.ws.send(JSON.stringify({id,method,params}));});}async eval(x){const r=await this.send("Runtime.evaluate",{expression:x,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw new Error(r.exceptionDetails.text+" "+(r.exceptionDetails.exception?.description||""));return r.result.value;}}
+const list=await (await fetch("http://127.0.0.1:9222/json/list")).json(); const page=list.find(t=>t.type==="page");
+const c=new C(page.webSocketDebuggerUrl); await c.open(); await c.send("Runtime.enable");
+const logs=[]; c.ws.addEventListener("message",e=>{const m=JSON.parse(e.data);if(m.method==="Runtime.consoleAPICalled"&&m.params.type==="error")logs.push("console:"+m.params.args.map(a=>a.value||a.description).join(" "));if(m.method==="Runtime.exceptionThrown")logs.push("exception:"+(m.params.exceptionDetails.exception?.description||m.params.exceptionDetails.text));});
+await c.send("Emulation.setDeviceMetricsOverride",{width:1440,height:900,deviceScaleFactor:1,mobile:false});
+await c.send("Page.navigate",{url:"http://127.0.0.1:5173/#/bike/specialized-tarmac-sl8-2026-s-works-dura-ace-di2"}); await wait(1500);
+await c.eval('localStorage.removeItem("velo-atlas-compare");location.reload()'); await wait(1400);
+const before=await c.eval('localStorage.getItem("velo-atlas-compare")');
+const add1=await c.eval('(()=>{const b=[...document.querySelectorAll("button")].find(x=>x.innerText.includes("对比"));if(!b)return "nobtn";b.click();return b.innerText;})()'); await wait(400);
+const after1=await c.eval('localStorage.getItem("velo-atlas-compare")');
+await c.send("Page.navigate",{url:"http://127.0.0.1:5173/#/bike/trek-madone-gen-8-2026-slr-9-gen-8"}); await wait(1400);
+const add2=await c.eval('(()=>{const b=[...document.querySelectorAll("button")].find(x=>x.innerText.includes("对比"));if(!b)return "nobtn";b.click();return b.innerText;})()'); await wait(400);
+const after2=await c.eval('localStorage.getItem("velo-atlas-compare")');
+await c.send("Page.navigate",{url:"http://127.0.0.1:5173/#/compare"}); await wait(1400);
+const comp=await c.eval('({cols:document.querySelectorAll("thead th").length,heads:[...document.querySelectorAll("thead th")].map(x=>x.innerText.split(String.fromCharCode(10)).filter(Boolean).slice(0,3).join(" / ")),removeBtns:document.querySelectorAll("button.btn-sm").length,text:document.body.innerText.slice(0,160)})');
+await c.eval('(()=>{const b=[...document.querySelectorAll("button")].find(x=>x.innerText.trim()==="移除");b.click();return true;})()'); await wait(500);
+const afterRemove=await c.eval('({cols:document.querySelectorAll("thead th").length,ls:localStorage.getItem("velo-atlas-compare")})');
+await c.eval('(()=>{const b=[...document.querySelectorAll("button")].find(x=>x.innerText.trim()==="清空");if(b)b.click();return true;})()'); await wait(500);
+const afterClear=await c.eval('({cols:document.querySelectorAll("thead th").length,empty:document.body.innerText.includes("对比台还是空的"),ls:localStorage.getItem("velo-atlas-compare")})');
+console.log(JSON.stringify({before,add1,after1,add2,after2,comp,afterRemove,afterClear,logs},null,1)); process.exit(0);
