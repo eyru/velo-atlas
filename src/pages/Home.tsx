@@ -27,10 +27,17 @@ export function Home() {
     bikes.find((b) => b.family.includes("Tarmac") && b.year === 2026) ??
     [...bikes].filter((b) => b.year >= 2025).sort((a, b) => b.popularity - a.popularity)[0];
   const featured = [...bikes]
-    .filter((b) => b.year >= 2025)
+    .filter((b) => b.year >= 2025 && b.price >= 15000)
     .sort((a, b) => b.popularity - a.popularity)
     .filter((b, i, arr) => arr.findIndex((x) => x.familyId === b.familyId) === i)
     .slice(0, 6);
+
+  const entryBikes = [...bikes]
+    .filter((b) => b.price <= 10000)
+    .sort((a, b) => b.popularity - a.popularity || b.year - a.year)
+    .filter((b, i, arr) => arr.findIndex((x) => x.familyId === b.familyId) === i)
+    .slice(0, 6);
+  const entryCount = bikes.filter((b) => b.price <= 10000).length;
 
   const roadFamilies = families.filter((f) => f.category === "road");
   const mtbFamilies = families.filter((f) => f.category === "mtb");
@@ -162,10 +169,27 @@ export function Home() {
         </div>
       </section>
 
+      <section className="section container featured-section entry-section">
+        <div className="section-head">
+          <div>
+            <p className="eyebrow">02 / 入门车库</p>
+            <h2>第一台车，不必从五位数开始。</h2>
+          </div>
+          <p className="section-note">
+            已收录 {entryCount} 个 10,000 元以下版本，从 1,999 元的入门公路/山地到 9,990 元的耐力公路。
+            <Link to="/catalog/road?band=0-5000" className="text-link"> 公路 ¥5,000 以下 <ArrowRight size={14} /></Link>
+            <Link to="/catalog/mtb?band=0-5000" className="text-link"> 山地 ¥5,000 以下 <ArrowRight size={14} /></Link>
+          </p>
+        </div>
+        <div className="bike-grid">
+          {entryBikes.map((bike, i) => <BikeCard key={bike.id} bike={bike} index={i} />)}
+        </div>
+      </section>
+
       <section className="section container featured-section">
         <div className="section-head">
           <div>
-            <p className="eyebrow">02 / 本周焦点</p>
+            <p className="eyebrow">03 / 本周焦点</p>
             <h2>值得先看的六台。</h2>
           </div>
           <Link to="/catalog/road?sort=popular" className="text-link">按热度浏览全部 <ArrowRight size={15} /></Link>
@@ -178,7 +202,7 @@ export function Home() {
       <section className="section container data-section">
         <div className="section-head">
           <div>
-            <p className="eyebrow">03 / 数据维度</p>
+            <p className="eyebrow">04 / 数据维度</p>
             <h2>一台车，拆成六层。</h2>
           </div>
           <p className="section-note">不是参数堆砌，而是按决策顺序组织：先看价格与年份，再看几何是否合身，最后核对套件与细节。</p>
@@ -201,7 +225,7 @@ export function Home() {
         <div className="container">
           <div className="section-head">
             <div>
-              <p className="eyebrow">04 / 品牌库</p>
+              <p className="eyebrow">05 / 品牌库</p>
               <h2>{brands.length} 个品牌，一张谱系。</h2>
             </div>
             <Link to="/brands" className="text-link">查看完整品牌库 <ArrowRight size={15} /></Link>
@@ -221,7 +245,7 @@ export function Home() {
       <section className="section container year-section">
         <div className="section-head">
           <div>
-            <p className="eyebrow">05 / 年款索引</p>
+            <p className="eyebrow">06 / 年款索引</p>
             <h2>从新年款往回翻。</h2>
           </div>
           <p className="section-note">年款是自行车配置变化的第一坐标。点击年份，直接进入对应筛选结果。</p>

@@ -76,6 +76,9 @@ export const roadFamiliesA = [
     story: "Allez Sprint 把 Tarmac 的竞赛几何下放到铝合金车架，是很多车手的第一台“真正快”的公路车。",
     builds: [
       B(2026, "Sprint 105 Di2", 19990, 8.1, "Shimano 105 Di2 R7170", "DT Swiss PR 1600", { popularity: 75 }),
+      B(2026, "Elite 10S", 7990, 9.0, "Shimano Tiagra 4720", "DT Swiss PR 1600", { popularity: 84 }),
+      B(2025, "Sport 9S", 5990, 9.4, "Shimano Sora R3000", "Axis Sport Disc", { popularity: 90 }),
+      B(2026, "Base 8S", 3990, 9.8, "Shimano Claris R2000", "Axis Sport Disc", { popularity: 95 }),
       B(2024, "Sport 105", 8990, 9.2, "Shimano 105 R7000", "DT Swiss PR 1600", { popularity: 70 }),
     ],
   }),
@@ -272,7 +275,7 @@ export const roadFamiliesA = [
     fork: "Aeroad CFR 全碳前叉",
     geoOverride: { stack: 550, reach: 393, headAngle: 73, seatAngle: 73.5, chainstay: 410, wheelbase: 990 },
     colors: [
-      C(" stealth 黑", "Stealth Black", "#0f1113", "黑"),
+      C("隐身黑", "Stealth Black", "#0f1113", "黑"),
       C("电光蓝", "Electric Blue", "#1655c9", "蓝"),
       C("熔岩红", "Lava Red", "#be1f2a", "红"),
     ],

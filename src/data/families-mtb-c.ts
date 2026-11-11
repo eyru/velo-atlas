@@ -19,7 +19,9 @@ export const mtbFamiliesC = [
     story: "Rockhopper 是很多人第一台真正意义上的山地车。它不追求轻，而是把几何、胎容与可靠性做对，让入门骑手先骑起来。",
     builds: [
       B(2026, "Comp 29", 5990, 13.0, "Shimano CUES U6000", "Specialized Stout 29", { popularity: 72 }),
-      B(2024, "Sport 29", 4290, 13.6, "Shimano CUES U6000", "Specialized Stout 29", { popularity: 66 }),
+      B(2026, "Expert 29", 7990, 12.6, "Shimano Deore M6100", "Specialized Stout 29", { popularity: 76 }),
+      B(2024, "Sport 29", 4290, 13.6, "Shimano CUES U6000", "Specialized Stout 29", { popularity: 84 }),
+      B(2026, "Base 29", 3290, 14.2, "Shimano Tourney TX 3×7", "Specialized Stout 29", { popularity: 92 }),
     ],
   }),
   mtbFamily("Specialized", "Status 140", {
@@ -79,7 +81,9 @@ export const mtbFamiliesC = [
     story: "Talon 是 Giant 的入门硬尾，配置不花哨，但车架几何、品控与门店网络让它在同价位很难被忽略。",
     builds: [
       B(2026, "1", 5980, 13.2, "Shimano CUES U6000", "Giant GX 29", { popularity: 68 }),
+      B(2026, "2", 4680, 13.7, "Shimano Acera M3000", "Giant GX 29", { popularity: 84 }),
       B(2024, "3", 3680, 13.9, "Shimano CUES U6000", "Giant GX 29", { popularity: 60 }),
+      B(2026, "4", 2980, 14.5, "Shimano Tourney TX 3×7", "Giant GX 29", { popularity: 93 }),
     ],
   }),
 
@@ -120,6 +124,9 @@ export const mtbFamiliesC = [
     story: "Trail 是 Cannondale 的铝合金林道硬尾，几何比传统 XC 更放松，适合把硬尾骑出一点林道味道。",
     builds: [
       B(2026, "SE 1", 8980, 12.9, "Shimano SLX M7100", "Cannondale HollowGram XC", { popularity: 66 }),
+      B(2026, "8", 6990, 13.3, "Shimano Deore M6100", "Cannondale Trail 29", { popularity: 76 }),
+      B(2026, "7", 5990, 13.5, "Shimano Deore M6100", "Cannondale Trail 29", { popularity: 83 }),
+      B(2026, "6", 4990, 13.8, "Shimano Acera M3000", "Cannondale Trail 29", { popularity: 89 }),
       B(2024, "5", 4290, 13.7, "Shimano CUES U6000", "Cannondale Trail 29", { popularity: 58 }),
     ],
   }),

@@ -140,6 +140,8 @@ export const roadFamiliesD: FamilyRaw[] = [
     builds: [
       B(2026, "AL 5", 9980, 9.0, "Shimano 105 R7100", "Bontrager Paradigm Comp", { popularity: 74 }),
       B(2025, "AL 4", 7980, 9.2, "Shimano Tiagra 4720", "Bontrager Paradigm Comp", { popularity: 70 }),
+      B(2026, "AL 3", 6980, 9.4, "Shimano Tiagra 4720", "Bontrager Paradigm Comp", { popularity: 82 }),
+      B(2024, "AL 2", 5480, 9.7, "Shimano Sora R3000", "Bontrager Paradigm Comp", { popularity: 91 }),
       B(2023, "AL 2", 5680, 9.6, "Shimano Tiagra 4720", "Bontrager Paradigm Comp", { popularity: 65 }),
     ],
   }),

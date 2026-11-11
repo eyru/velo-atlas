@@ -154,7 +154,10 @@ export const mtbFamiliesB = [
     story: "Marlin 是很多人第一台山地车，简单、可靠，能把林道入口的门槛降到最低。",
     builds: [
       B(2026, "8 Deore", 8980, 13.6, "Shimano Deore M6100", "Bontrager Kovee", { popularity: 70 }),
-      B(2024, "7 Altus", 5980, 14.2, "Shimano Altus", "Bontrager Kovee", { popularity: 66 }),
+      B(2025, "7 Deore", 6980, 14.0, "Shimano Deore M6100", "Bontrager Kovee", { popularity: 78 }),
+      B(2025, "6 Acera", 5280, 14.3, "Shimano Acera M3000", "Bontrager Kovee", { popularity: 86 }),
+      B(2026, "5 Altus", 4680, 14.5, "Shimano Altus M2000", "Bontrager Kovee", { popularity: 90 }),
+      B(2026, "4", 3980, 14.8, "Shimano Tourney TX 3×7", "Bontrager Kovee", { popularity: 93 }),
     ],
   }),
 
@@ -417,7 +420,11 @@ export const mtbFamiliesB = [
     story: "Big Nine 是 Merida 的入门 29 吋硬尾，简单可靠，是很多人进入山地骑行的第一台车。",
     builds: [
       B(2026, "500 Deore", 8980, 13.8, "Shimano Deore M6100", "Merida Comp CC", { popularity: 63 }),
-      B(2024, "300 Altus", 5980, 14.4, "Shimano Altus", "Merida Comp CC", { popularity: 59 }),
+      B(2025, "300 Acera", 5980, 14.4, "Shimano Acera M3000", "Merida Comp CC", { popularity: 72 }),
+      B(2026, "100 Deore", 6290, 14.0, "Shimano Deore M6100", "Merida Comp CC", { popularity: 82 }),
+      B(2026, "40 Acera", 4990, 14.3, "Shimano Acera M3000", "Merida Comp CC", { popularity: 88 }),
+      B(2026, "20 Altus", 3990, 14.6, "Shimano Altus M2000", "Merida Comp CC", { popularity: 91 }),
+      B(2026, "15", 3290, 14.8, "Shimano Tourney TX 3×7", "Merida Comp CC", { popularity: 94 }),
     ],
   }),
 

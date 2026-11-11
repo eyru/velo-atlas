@@ -1,10 +1,11 @@
-# VELO ATLAS 事实核查基线（公路 + 山地，2024–2026；附 16 个国产车系）
+# VELO ATLAS 事实核查基线（公路 + 山地，2024–2026；附 16 个国产车系与 143 个入门版本）
 
 > 用途：数据层 benchmark。所有数值均来自公开来源，逐条附链接；价格为**市场参考**，非报价承诺。
 > 置信度：**A** = 品牌官网直接读取（价格/规格/几何同页可核）；**B** = 官网数据 + 第三方/媒体交叉校验；**C** = 仅第三方零售商或单一来源，需复核。
 > 币种说明：¥ = 中国大陆建议零售价（CNY）；$ = 美国 MSRP（USD）；€ = 欧洲含税建议价（EUR）。同一车型不同币种**不可直接比较**（税费/配置不同）。
 > 价格采集时间：2026 年 11 月。厂商随时调价，入库时请以来源链接为准。
 > 附录：16 个国产车系（XDS / X-LAB / PARDUS / SAVA / WINSPACE）单列于第四节；其中 X-LAB AD9 与 SAVA Blade R7/R9 为官方逐码几何，其余为参考模型。
+> 入门梯队：56 个车系 / 143 个万元内版本单列于第五节，价格按品牌官网与授权经销商公开页的数量级基线录入，未做旗舰级三方交叉核验；几何全部为参考模型。
 
 ## 一、总表 A：公路车（10 款）
 
@@ -378,7 +379,52 @@
 - SAVA Titan 612：<https://savadeck-bike.com/products/sava-titan-612-deore-m6100-full-suspension-carbon-mountain-bike>
 - WINSPACE T1550 Gen2：<https://winspace.com.au/products/t1550-2nd-gen-winspace-road-bike-shimano-105-di2>
 
-## 五、未核实 / 待补清单
+
+## 五、入门梯队补充（56 个车系 / 143 个版本）
+
+> 口径说明：本节是**万元内价格带的覆盖基线**，不是逐台官方核价报告。价格为 2024–2026 年款在中国大陆公开渠道的数量级参考，会随批次、促销与地区变化；同一车系不同年款的配置与价格不可直接套用。入门车几何除特别注明外均为站内参考模型，不可作为 fitting 依据。
+>
+> 覆盖目标：让公路/山地各自具备 ¥2,000–10,000 的连续选择，而不是只有高阶车。当前 10,000 元以下共 143 个版本（公路 75 / 山地 68），其中公路 ¥5,000 以下 23 个、¥5,000–10,000 52 个；山地对应 40 个与 28 个。
+
+### 5.1 品牌覆盖与最低价
+
+| 品牌 | 万元内版本 | 公路 | 山地 | 最低参考价 | 代表入门车系 |
+|---|---:|---:|---:|---:|---|
+| XDS 喜德盛 | 17 | 8 | 9 | ¥1,999 | RC200、英雄 300、MT2 |
+| Merida 美利达 | 15 | 6 | 9 | ¥2,990 | Scultura AL、Big Seven、Big Nine |
+| Giant 捷安特 | 13 | 8 | 5 | ¥2,980 | Contend、Talon |
+| Trek 崔克 | 12 | 5 | 7 | ¥3,980 | Domane AL、Marlin |
+| Cannondale | 11 | 6 | 5 | ¥4,290 | CAAD Optimo、Trail |
+| Specialized | 10 | 6 | 4 | ¥3,290 | Allez、Rockhopper |
+| Scott | 9 | 4 | 5 | ¥3,990 | Speedster、Aspect |
+| Marin | 9 | 3 | 6 | ¥3,290 | Gestalt、Bolinas Ridge |
+| Decathlon 迪卡侬 | 8 | 4 | 4 | ¥1,999 | Triban RC120、Rockrider ST 100 |
+| Cube | 8 | 3 | 5 | ¥3,290 | Attain、Aim |
+| TWITTER 推特 | 5 | 3 | 2 | ¥3,999 | Raptor、Sniper |
+| Canyon | 5 | 3 | 2 | ¥6,990 | Endurace AL、Grail AL |
+| JAVA 佳沃 | 4 | 4 | 0 | ¥2,999 | Veloce、Siluro |
+| Kona | 4 | 0 | 4 | ¥3,990 | Mahuna、Fire Mountain |
+| Bianchi | 3 | 3 | 0 | ¥4,990 | Via Nirone 7 |
+| Felt | 3 | 3 | 0 | ¥5,990 | VR |
+| PARDUS 瑞豹 | 3 | 3 | 0 | ¥3,999 | ROBIN AL |
+| Wilier | 3 | 3 | 0 | ¥5,990 | Montegrappa |
+| Orbea | 1 | 0 | 1 | ¥7,999 | Alma |
+
+### 5.2 价格锚点
+
+- **¥1,999–2,999**：迪卡侬 Triban RC120 / Rockrider ST 100、XDS RC200 / 英雄 300 / 英雄 500、JAVA Veloce。以 Tourney/Claris、机械碟刹、铝合金车架为主，适合通勤与入门训练。
+- **¥3,000–4,999**：Giant Talon 4、Merida Big Seven 15、Specialized Rockhopper Base、Trek Marlin 4、Scott Aspect、Cube Aim、Marin Bolinas Ridge、PARDUS ROBIN AL、TWITTER Raptor。开始出现 Altus/Acera、可锁死前叉与更完整的尺码段。
+- **¥5,000–7,999**：Specialized Allez、Trek Domane AL 2/3、Giant Contend、Cannondale CAAD Optimo、Merida Scultura AL、Bianchi Via Nirone 7、Felt VR、Wilier Montegrappa、Canyon Endurace AL。Sora/Claris 液压碟刹或 105 机械，进入可长期升级的车架平台。
+- **¥8,000–10,000**：Trek Checkpoint ALR、Giant Contend AR / Revolt AL、Cannondale Topstone AL、Specialized Diverge E5、Trek Roscoe、Merida Big Nine 500。砾石/多用途与入门越野的分水岭。
+
+### 5.3 已知边界
+
+- 入门车配置以原厂公布为准，但不同批次可能替换同级套件或轮组；站内不把“同价位替代件”写成确定配置。
+- 价格未逐台附官方链接；如需采购，请以品牌中国区官网或授权经销商当前页面为准。
+- 部分车系（如 XDS 英雄、迪卡侬 Triban）在不同渠道使用不同命名，站内按车系归并，不保证穷尽所有地区版本。
+- 入门车几何为参考模型；仅 X-LAB AD9、SAVA Blade R7/R9 等具备官方逐码表。
+
+## 六、未核实 / 待补清单
 
 | 车型 | 缺口 |
 |---|---|
@@ -398,7 +444,7 @@
 | Merida One-Sixty | 车架材质、套件、轮组、重量、几何 |
 | Commencal Meta SX | 车架材质、套件、轮组、重量、几何（官网几何为图片） |
 
-## 六、方法与口径
+## 七、方法与口径
 
 1. **来源优先级**：品牌官网商品页（价格/规格/重量/几何）> 品牌新闻稿 > 媒体实测（BikeRadar、Cyclingnews、Pinkbike、Bikerumor、BIKE、TOUR）> 零售商页面（仅作价格线索）。
 2. **几何取 M 码**：官网直接给 Frame Stack/Reach 的（Specialized、Canyon、Cervélo）优先；其余用 ridedna.ai 的厂商公布几何汇总表（逐尺码，含 HTA/STA/ETT/WB 校验）。尺码不叫 M 的品牌按最接近 M 的标称码记录（如 Pinarello 540、Colnago 510、Cannondale 54）。

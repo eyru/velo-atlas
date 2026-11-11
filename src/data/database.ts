@@ -9,6 +9,8 @@ import { mtbFamiliesA } from "./families-mtb-a";
 import { mtbFamiliesB } from "./families-mtb-b";
 import { mtbFamiliesC } from "./families-mtb-c";
 import { cnRoadFamilies, cnMtbFamilies } from "./families-cn";
+import { entryRoadFamilies } from "./families-entry-road";
+import { entryMtbFamilies } from "./families-entry-mtb";
 import { slugify } from "./helpers";
 import type { Bike, BuildRaw, Category, Discipline, FamilyRaw, SpecGroup } from "./types";
 
@@ -22,6 +24,8 @@ export const families: FamilyRaw[] = [
   ...mtbFamiliesC,
   ...cnRoadFamilies,
   ...cnMtbFamilies,
+  ...entryRoadFamilies,
+  ...entryMtbFamilies,
 ];
 
 const disciplineMeta: Record<Discipline, { label: string; en: string; blurb: string }> = {
@@ -47,6 +51,8 @@ function groupsetBrandOf(name: string): string {
   if (name.startsWith("Shimano")) return "Shimano";
   if (name.startsWith("SRAM")) return "SRAM";
   if (name.startsWith("Campagnolo")) return "Campagnolo";
+  if (name.startsWith("microSHIFT")) return "microSHIFT";
+  if (name.startsWith("L-TWOO")) return "L-TWOO";
   return "其他";
 }
 
@@ -100,7 +106,7 @@ function specsOf(family: FamilyRaw, build: BuildRaw, bike: Pick<Bike, "sizes" | 
       { label: "变速形式", value: bike.drivetrain },
       ...(gs ? [
         { label: "后拨", value: gs.rd },
-        { label: "前拨", value: gs.fd },
+        { label: "前拨", value: !gs.fd || gs.fd === "—" ? "无前拨（1× 单盘）" : gs.fd },
         { label: "牙盘", value: gs.crank },
         { label: "飞轮", value: gs.cassette },
         { label: "链条", value: gs.chain },
@@ -129,7 +135,7 @@ function specsOf(family: FamilyRaw, build: BuildRaw, bike: Pick<Bike, "sizes" | 
       { label: "车把", value: cockpit.bar },
       { label: "把立", value: cockpit.stem },
       { label: "座管", value: cockpit.post },
-      { label: "把带", value: cockpit.tape },
+      { label: family.category === "mtb" ? "把套" : "把带", value: cockpit.tape },
       ...(m ? [
         { label: "M 码曲柄", value: `${m.crank} mm` },
         { label: "M 码把立", value: `${m.stem} mm` },

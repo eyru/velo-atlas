@@ -24,19 +24,55 @@ const MIME = {
   ".woff": "font/woff",
 };
 
+async function replaceAsync(text, pattern, replacer) {
+  const matches = [...text.matchAll(pattern)];
+  if (!matches.length) return text;
+  const pieces = [];
+  let last = 0;
+  for (const m of matches) {
+    pieces.push(text.slice(last, m.index));
+    pieces.push(await replacer(...m));
+    last = m.index + m[0].length;
+  }
+  pieces.push(text.slice(last));
+  return pieces.join("");
+}
+
 async function inlineAssets(text, label) {
-  const urls = [...new Set(text.match(/\/assets\/[A-Za-z0-9._@%+~-]+\.[A-Za-z0-9]+/g) || [])];
   let bytes = 0;
+  let count = 0;
+  const dataUri = async (file) => {
+    const ext = path.extname(file).toLowerCase();
+    const mime = MIME[ext];
+    if (!mime) return null;
+    const buf = await readFile(resolveAsset("/assets/" + file));
+    bytes += buf.byteLength;
+    count += 1;
+    return "data:" + mime + ";base64," + buf.toString("base64");
+  };
+
+  // Vite with base:"./" emits new URL("name.webp", import.meta.url).href.
+  text = await replaceAsync(
+    text,
+    /new URL\("([^"]+\.[A-Za-z0-9]+)"\s*,\s*import\.meta\.url\)\.href/g,
+    async (whole, file) => {
+      const uri = await dataUri(file);
+      return uri ? JSON.stringify(uri) : whole;
+    },
+  );
+
+  // Older output / absolute asset URLs.
+  const urls = [...new Set(text.match(/\/assets\/[A-Za-z0-9._@%+~-]+\.[A-Za-z0-9]+/g) || [])];
   for (const url of urls) {
     const ext = path.extname(url).toLowerCase();
     const mime = MIME[ext];
     if (!mime) continue;
-    const file = resolveAsset(url);
-    const buf = await readFile(file);
+    const buf = await readFile(resolveAsset(url));
     bytes += buf.byteLength;
+    count += 1;
     text = text.split(url).join("data:" + mime + ";base64," + buf.toString("base64"));
   }
-  console.log(label + " inlined assets:", urls.length, "| raw", (bytes / 1024).toFixed(1), "kB");
+  console.log(label + " inlined assets:", count, "| raw", (bytes / 1024).toFixed(1), "kB");
   return text;
 }
 

@@ -34,6 +34,8 @@ export const groupsets: Record<string, GroupsetSpec> = {
   "Shimano Tiagra 4720": { brand: "Shimano", family: "Tiagra", speeds: "2×10", rd: "Tiagra RD-4700 机械", fd: "Tiagra FD-4700 机械", shifters: "Tiagra ST-4720 机械/液压", crank: "Tiagra FC-4700 50/34T", cassette: "Tiagra CS-HG500 11-34T", chain: "Shimano CN-HG54", bb: "Shimano BB-RS500", brakes: "Tiagra BR-4770 液压碟刹", rotors: "Shimano RT-54 160/140mm" },
   "SRAM XX SL Eagle AXS": { brand: "SRAM", family: "XX SL Eagle AXS", speeds: "1×12", rd: "SRAM XX SL Eagle AXS 后拨", fd: "—", shifters: "SRAM XX SL Eagle AXS 指拨", crank: "SRAM XX SL 34T 碳纤维功率计", cassette: "SRAM XX SL Eagle 10-52T", chain: "SRAM XX SL Flattop", bb: "SRAM DUB BSA", brakes: "SRAM Level Ultimate 4活塞", rotors: "SRAM HS2 180/160mm" },
   "SRAM X0 Eagle AXS": { brand: "SRAM", family: "X0 Eagle AXS", speeds: "1×12", rd: "SRAM X0 Eagle AXS 后拨", fd: "—", shifters: "SRAM X0 Eagle AXS 指拨", crank: "SRAM X0 Eagle 34T", cassette: "SRAM X0 Eagle 10-52T", chain: "SRAM X0 Flattop", bb: "SRAM DUB BSA", brakes: "SRAM Code Bronze 4活塞", rotors: "SRAM HS2 180/160mm" },
+  "SRAM X0 Eagle": { brand: "SRAM", family: "X0 Eagle", speeds: "1×12", rd: "SRAM X0 Eagle 机械后拨", fd: "—", shifters: "SRAM X0 Eagle 指拨", crank: "SRAM X0 Eagle 34T", cassette: "SRAM X0 Eagle 10-52T", chain: "SRAM X0 Eagle", bb: "SRAM DUB BSA", brakes: "SRAM Code R 4活塞", rotors: "SRAM CenterLine 180/160mm" },
+  "SRAM X0 DH": { brand: "SRAM", family: "X0 DH", speeds: "1×7", rd: "SRAM X0 DH 7 速后拨", fd: "—", shifters: "SRAM X0 DH 7 速指拨", crank: "SRAM X0 DH 34T", cassette: "SRAM X0 DH 10-24T", chain: "SRAM PC-1110", bb: "SRAM DUB BSA", brakes: "SRAM Code RSC 4活塞", rotors: "SRAM HS2 200/180mm" },
   "SRAM GX Eagle AXS": { brand: "SRAM", family: "GX Eagle AXS", speeds: "1×12", rd: "SRAM GX Eagle AXS 后拨", fd: "—", shifters: "SRAM GX Eagle AXS 指拨", crank: "SRAM GX Eagle 32T", cassette: "SRAM GX Eagle 10-52T", chain: "SRAM GX Flattop", bb: "SRAM DUB BSA", brakes: "SRAM DB8 4活塞", rotors: "SRAM HS2 180/160mm" },
   "SRAM GX Eagle": { brand: "SRAM", family: "GX Eagle", speeds: "1×12", rd: "SRAM GX Eagle 机械后拨", fd: "—", shifters: "SRAM GX Eagle 指拨", crank: "SRAM GX Eagle 32T", cassette: "SRAM GX Eagle 10-52T", chain: "SRAM GX Eagle", bb: "SRAM DUB BSA", brakes: "SRAM G2 R 4活塞", rotors: "SRAM CenterLine 180/160mm" },
   "SRAM NX Eagle": { brand: "SRAM", family: "NX Eagle", speeds: "1×12", rd: "SRAM NX Eagle 机械后拨", fd: "—", shifters: "SRAM NX Eagle 指拨", crank: "SRAM NX Eagle 32T", cassette: "SRAM NX Eagle 11-50T", chain: "SRAM NX Eagle", bb: "SRAM DUB BSA", brakes: "SRAM Level T 4活塞", rotors: "SRAM CenterLine 180/160mm" },
@@ -45,6 +47,18 @@ export const groupsets: Record<string, GroupsetSpec> = {
   "Shimano CUES U6000": { brand: "Shimano", family: "CUES", speeds: "1×10", rd: "CUES RD-U6000 机械", fd: "—", shifters: "CUES SL-U6000 指拨", crank: "CUES FC-U6000 32T", cassette: "CUES CS-U6000 11-48T", chain: "Shimano CN-LG500", bb: "Shimano BB-MT500", brakes: "Shimano MT200 液压碟刹", rotors: "Shimano RT-26 180/160mm" },
   "L-TWOO RX 2x12": { brand: "L-TWOO", family: "RX", speeds: "2×12", rd: "L-TWOO RX 12 速后拨", fd: "L-TWOO RX 前拨", shifters: "L-TWOO RX 液压碟刹手变", crank: "Branta 铝合金一体齿盘 48T", cassette: "L-TWOO 11-34T", chain: "L-TWOO 12 速链条", bb: "BSA 螺纹中轴", brakes: "L-TWOO 液压碟刹", rotors: "160mm 六钉碟片" },
   "L-TWOO eGR 1x12": { brand: "L-TWOO", family: "eGR", speeds: "1×12", rd: "L-TWOO eGR 12 速后拨", fd: "—", shifters: "L-TWOO eGR 液压碟刹手变", crank: "L-TWOO eGR 40T", cassette: "L-TWOO 11-50T", chain: "L-TWOO 12 速链条", bb: "BSA 螺纹中轴", brakes: "L-TWOO 液压碟刹", rotors: "160mm 六钉碟片" },
+  "Shimano Tourney 2×7": { brand: "Shimano", family: "Tourney", speeds: "2×7", rd: "Tourney RD-A070", fd: "Tourney FD-A070", shifters: "Tourney ST-A073 机械", crank: "Tourney FC-A070 50/34T", cassette: "Shimano CS-HG200 12-28T", chain: "Shimano CN-HG40", bb: "Shimano BB-UN101 方孔", brakes: "机械碟刹", rotors: "160mm 六钉" },
+  "Shimano Tourney TX 3×7": { brand: "Shimano", family: "Tourney TX", speeds: "3×7", rd: "Tourney RD-TX800", fd: "Tourney FD-TX800", shifters: "Tourney ST-EF500 指拨", crank: "Tourney FC-TY501 24/34/42T", cassette: "Shimano CS-HG200 12-32T", chain: "Shimano CN-HG40", bb: "Shimano BB-UN101 方孔", brakes: "机械碟刹", rotors: "160mm 六钉" },
+  "Shimano Claris R2000": { brand: "Shimano", family: "Claris", speeds: "2×8", rd: "Claris RD-R2000", fd: "Claris FD-R2000", shifters: "Claris ST-R2000 机械", crank: "Claris FC-R2000 50/34T", cassette: "Shimano CS-HG50 11-32T", chain: "Shimano CN-HG71", bb: "Shimano BB-RS500", brakes: "机械碟刹", rotors: "160mm 六钉" },
+  "Shimano Sora R3000": { brand: "Shimano", family: "Sora", speeds: "2×9", rd: "Sora RD-R3000", fd: "Sora FD-R3000", shifters: "Sora ST-R3000 机械", crank: "Sora FC-R3000 50/34T", cassette: "Shimano CS-HG400 11-34T", chain: "Shimano CN-HG53", bb: "Shimano BB-RS500", brakes: "Sora 机械碟刹", rotors: "160mm 六钉" },
+  "Shimano Altus M2000": { brand: "Shimano", family: "Altus", speeds: "3×9", rd: "Altus RD-M2000", fd: "Altus FD-M2000", shifters: "Altus SL-M2010 指拨", crank: "Altus FC-MT210 22/30/40T", cassette: "Shimano CS-HG200 11-36T", chain: "Shimano CN-HG53", bb: "Shimano BB-MT500", brakes: "Shimano MT200 液压碟刹", rotors: "Shimano RT-26 160mm" },
+  "Shimano Acera M3000": { brand: "Shimano", family: "Acera", speeds: "3×9", rd: "Acera RD-M3000", fd: "Acera FD-M3000", shifters: "Acera SL-M3000 指拨", crank: "Acera FC-MT300 22/30/40T", cassette: "Shimano CS-HG400 11-36T", chain: "Shimano CN-HG53", bb: "Shimano BB-MT500", brakes: "Shimano MT200 液压碟刹", rotors: "Shimano RT-26 160mm" },
+  "Shimano GRX RX400": { brand: "Shimano", family: "GRX", speeds: "2×10", rd: "GRX RD-RX400", fd: "GRX FD-RX400", shifters: "GRX ST-RX400 液压碟刹", crank: "GRX FC-RX600 46/30T", cassette: "Shimano CS-HG50 11-36T", chain: "Shimano CN-HG54", bb: "Shimano BB-RS500", brakes: "GRX BR-RX400 液压碟刹", rotors: "Shimano RT-70 160mm" },
+  "microSHIFT 2×8": { brand: "microSHIFT", family: "M26", speeds: "2×8", rd: "microSHIFT RD-M26S", fd: "microSHIFT FD-M20", shifters: "microSHIFT SB-M08 手变", crank: "Prowheel 50/34T", cassette: "microSHIFT CS-H081 11-32T", chain: "KMC X8", bb: "BSA 方孔中轴", brakes: "机械碟刹", rotors: "160mm 六钉" },
+  "microSHIFT 1×8": { brand: "microSHIFT", family: "M36", speeds: "1×8", rd: "microSHIFT RD-M36S", fd: "—", shifters: "microSHIFT SL-M718 指拨", crank: "Prowheel 32T", cassette: "microSHIFT CS-H081 11-34T", chain: "KMC X8", bb: "BSA 方孔中轴", brakes: "机械碟刹", rotors: "160mm 六钉" },
+  "L-TWOO A5 2×9": { brand: "L-TWOO", family: "A5", speeds: "2×9", rd: "L-TWOO A5 9 速后拨", fd: "L-TWOO A5 前拨", shifters: "L-TWOO A5 手变", crank: "L-TWOO 50/34T", cassette: "L-TWOO 11-32T", chain: "L-TWOO 9 速链条", bb: "BSA 螺纹中轴", brakes: "L-TWOO 机械碟刹", rotors: "160mm 六钉" },
+  "L-TWOO A7 2×10": { brand: "L-TWOO", family: "A7", speeds: "2×10", rd: "L-TWOO A7 10 速后拨", fd: "L-TWOO A7 前拨", shifters: "L-TWOO A7 手变", crank: "L-TWOO 50/34T", cassette: "L-TWOO 11-34T", chain: "L-TWOO 10 速链条", bb: "BSA 螺纹中轴", brakes: "L-TWOO 机械碟刹", rotors: "160mm 六钉" },
+  "L-TWOO AX 1×12": { brand: "L-TWOO", family: "AX", speeds: "1×12", rd: "L-TWOO AX 12 速后拨", fd: "—", shifters: "L-TWOO AX 指拨", crank: "L-TWOO 32T", cassette: "L-TWOO 11-50T", chain: "L-TWOO 12 速链条", bb: "BSA 螺纹中轴", brakes: "L-TWOO 液压碟刹", rotors: "160mm 六钉" },
 };
 
 export interface WheelsetSpec {
@@ -130,6 +144,39 @@ export const wheelsets: Record<string, WheelsetSpec> = {
   "SAVA 铝合金砾石轮组": { brand: "SAVA", rim: "铝合金砾石轮圈", hubs: "SAVA 自研", tubeless: "支持真空胎" },
   "WINSPACE HYPER 碳纤维轮组": { brand: "WINSPACE", rim: "HYPER 碳纤维轮圈", hubs: "WINSPACE 自研", tubeless: "真空胎系统" },
   "UNAAS Hard D50 碳纤维轮组": { brand: "UNAAS", rim: "Hard D50 碳纤维 50mm", hubs: "UNAAS 自研", tubeless: "真空胎系统" },
+  "Axis Sport Disc": { brand: "Specialized", rim: "Axis Sport 铝合金碟刹轮圈", hubs: "Axis 自研", tubeless: "支持真空胎" },
+  "Axis Elite Disc": { brand: "Specialized", rim: "Axis Elite 铝合金碟刹轮圈", hubs: "Axis 自研", tubeless: "真空胎系统" },
+  "DT Swiss G540": { brand: "DT Swiss", rim: "G540 铝合金砾石轮圈", hubs: "DT Swiss 370", tubeless: "真空胎系统" },
+  "Bontrager Paradigm SL": { brand: "Bontrager", rim: "Paradigm SL 铝合金碟刹轮圈", hubs: "Bontrager 自研", tubeless: "TLR 真空胎" },
+  "Giant S-X2 Disc": { brand: "Giant", rim: "S-X2 铝合金碟刹轮圈", hubs: "Giant 自研", tubeless: "支持真空胎" },
+  "Giant P-R2 Disc": { brand: "Giant", rim: "P-R2 铝合金碟刹轮圈", hubs: "Giant 自研", tubeless: "支持真空胎" },
+  "Merida Comp SL": { brand: "Merida", rim: "Comp SL 铝合金轮圈", hubs: "Merida 自研", tubeless: "支持真空胎" },
+  "Merida Comp CC": { brand: "Merida", rim: "Comp CC 铝合金轮圈", hubs: "Merida 自研", tubeless: "支持真空胎" },
+  "Cannondale RD 2.0": { brand: "Cannondale", rim: "RD 2.0 铝合金轮圈", hubs: "Cannondale 自研", tubeless: "支持真空胎" },
+  "Cannondale CX 2.0": { brand: "Cannondale", rim: "CX 2.0 铝合金砾石轮圈", hubs: "Cannondale 自研", tubeless: "支持真空胎" },
+  "Syncros Race 24": { brand: "Syncros", rim: "Race 24 铝合金轮圈", hubs: "Syncros 自研", tubeless: "支持真空胎" },
+  "Cube Alexrims": { brand: "Cube", rim: "Alexrims 铝合金轮圈", hubs: "Cube 自研", tubeless: "支持真空胎" },
+  "Bianchi Reparto Corse": { brand: "Bianchi", rim: "Reparto Corse 铝合金轮圈", hubs: "Bianchi 自研", tubeless: "支持真空胎" },
+  "Canyon Alexrims": { brand: "Canyon", rim: "Alexrims 铝合金轮圈", hubs: "Canyon 自研", tubeless: "支持真空胎" },
+  "DT Swiss Endurance LN": { brand: "DT Swiss", rim: "Endurance LN 铝合金轮圈", hubs: "DT Swiss 370", tubeless: "支持真空胎" },
+  "Felt Devox 2.1": { brand: "Felt", rim: "Devox 2.1 铝合金轮圈", hubs: "Felt 自研", tubeless: "支持真空胎" },
+  "Wilier Corsa": { brand: "Wilier", rim: "Corsa 铝合金轮圈", hubs: "Wilier 自研", tubeless: "支持真空胎" },
+  "Marin Aluminum Disc": { brand: "Marin", rim: "Marin 铝合金碟刹轮圈", hubs: "Marin 自研", tubeless: "支持真空胎" },
+  "Triban 铝合金碟刹轮组": { brand: "Decathlon", rim: "Triban 铝合金碟刹轮圈", hubs: "Triban 自研", tubeless: "支持真空胎" },
+  "Triban 铝合金轮组": { brand: "Decathlon", rim: "Triban 铝合金轮圈", hubs: "Triban 自研", tubeless: "支持真空胎" },
+  "JAVA 铝合金碟刹轮组": { brand: "JAVA", rim: "JAVA 铝合金碟刹轮圈", hubs: "JAVA 自研", tubeless: "支持真空胎" },
+  "TWITTER 铝合金碟刹轮组": { brand: "TWITTER", rim: "TWITTER 铝合金碟刹轮圈", hubs: "TWITTER 自研", tubeless: "支持真空胎" },
+  "TWITTER 铝合金轮组": { brand: "TWITTER", rim: "TWITTER 铝合金轮圈", hubs: "TWITTER 自研", tubeless: "支持真空胎" },
+  "XDS 铝合金碟刹轮组": { brand: "XDS", rim: "XDS 铝合金碟刹轮圈", hubs: "XDS 自研", tubeless: "支持真空胎" },
+  "Bontrager Kovee": { brand: "Bontrager", rim: "Kovee 铝合金 29mm 内宽", hubs: "Bontrager 自研", tubeless: "TLR 真空胎" },
+  "Cube AM Ride 25": { brand: "Cube", rim: "AM Ride 25 铝合金 25mm 内宽", hubs: "Cube 自研", tubeless: "支持真空胎" },
+  "Marin Aluminum 29": { brand: "Marin", rim: "Marin 铝合金 29 吋轮圈", hubs: "Marin 自研", tubeless: "支持真空胎" },
+  "Kona Aluminum 29": { brand: "Kona", rim: "Kona 铝合金 29 吋轮圈", hubs: "Kona 自研", tubeless: "支持真空胎" },
+  "Kona Aluminum 27.5": { brand: "Kona", rim: "Kona 铝合金 27.5 吋轮圈", hubs: "Kona 自研", tubeless: "支持真空胎" },
+  "Rockrider 铝合金碟刹轮组": { brand: "Decathlon", rim: "Rockrider 铝合金碟刹轮圈", hubs: "Rockrider 自研", tubeless: "支持真空胎" },
+  "Specialized Stout 29": { brand: "Specialized", rim: "Stout 铝合金 29 吋轮圈", hubs: "Specialized 自研", tubeless: "支持真空胎" },
+  "Cannondale Trail 29": { brand: "Cannondale", rim: "Trail 铝合金 29 吋轮圈", hubs: "Cannondale 自研", tubeless: "支持真空胎" },
+  "Giant GX 29": { brand: "Giant", rim: "GX 铝合金 29 吋轮圈", hubs: "Giant 自研", tubeless: "支持真空胎" }
 };
 
 export function tiresFor(category: Category, discipline: Discipline): string {
@@ -157,5 +204,5 @@ export function cockpitFor(price: number, category: Category, discipline: Discip
   const bar = price >= 60000 ? `碳纤维燕把 ${wide}mm` : price >= 30000 ? `铝合金燕把 ${wide}mm` : `铝合金燕把 ${wide}mm`;
   const stem = price >= 60000 ? "CNC 铝合金把立 45mm" : "铝合金把立 50mm";
   const post = price >= 60000 ? "碳纤维座管" : "铝合金座管";
-  return { bar, stem, post, tape: "—" };
+  return { bar, stem, post, tape: "锁环把套" };
 }
