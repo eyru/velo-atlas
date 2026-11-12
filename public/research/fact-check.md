@@ -1,11 +1,12 @@
-# VELO ATLAS 事实核查基线（公路 + 山地，2024–2026；附 16 个国产车系与 143 个入门版本）
+# VELO ATLAS 事实核查基线（公路 + 山地，2020–2027；393 车系 / 826 版本；附官网扩充、16 个国产车系与入门梯队）
 
 > 用途：数据层 benchmark。所有数值均来自公开来源，逐条附链接；价格为**市场参考**，非报价承诺。
 > 置信度：**A** = 品牌官网直接读取（价格/规格/几何同页可核）；**B** = 官网数据 + 第三方/媒体交叉校验；**C** = 仅第三方零售商或单一来源，需复核。
 > 币种说明：¥ = 中国大陆建议零售价（CNY）；$ = 美国 MSRP（USD）；€ = 欧洲含税建议价（EUR）。同一车型不同币种**不可直接比较**（税费/配置不同）。
 > 价格采集时间：2026 年 11 月。厂商随时调价，入库时请以来源链接为准。
 > 附录：16 个国产车系（XDS / X-LAB / PARDUS / SAVA / WINSPACE）单列于第四节；其中 X-LAB AD9 与 SAVA Blade R7/R9 为官方逐码几何，其余为参考模型。
-> 入门梯队：56 个车系 / 143 个万元内版本单列于第五节，价格按品牌官网与授权经销商公开页的数量级基线录入，未做旗舰级三方交叉核验；几何全部为参考模型。
+> 入门梯队：原 56 个车系 / 143 个万元内版本单列于第五节；官网扩充后站内万元内版本为 227 个（公路 126 / 山地 101）。
+> 官网扩充：2026 年 11 月按 36 个品牌官网在售产品线新增 187 个车系 / 371 个版本，单列于第六节；每个新车系在站内附「品牌官方页面」链接。
 
 ## 一、总表 A：公路车（10 款）
 
@@ -424,7 +425,58 @@
 - 部分车系（如 XDS 英雄、迪卡侬 Triban）在不同渠道使用不同命名，站内按车系归并，不保证穷尽所有地区版本。
 - 入门车几何为参考模型；仅 X-LAB AD9、SAVA Blade R7/R9 等具备官方逐码表。
 
-## 六、未核实 / 待补清单
+## 六、2026 年 11 月官网产品线扩充（187 个车系 / 371 个版本）
+
+> 目标：不再以「旗舰 + 入门」两头为主，而是按 36 个品牌官网的在售产品线把中间档补全。以下数量为本次新增，不含站内原有车系；累计后站内为 393 个车系 / 826 个版本。
+
+### 6.1 新增车系与版本（按品牌）
+
+| 品牌 | 新增车系 | 新增版本 | 品牌 | 新增车系 | 新增版本 |
+|---|---:|---:|---|---:|---:|
+| Specialized | 8 | 24 | Trek | 8 | 18 |
+| Giant | 10 | 26 | Merida | 8 | 17 |
+| Cannondale | 9 | 19 | Scott | 8 | 16 |
+| Cube | 8 | 15 | Orbea | 7 | 15 |
+| Canyon | 5 | 10 | BMC | 4 | 8 |
+| Cervélo | 4 | 4 | Felt | 4 | 9 |
+| Pinarello | 4 | 6 | Colnago | 3 | 4 |
+| Bianchi | 4 | 5 | Wilier | 4 | 7 |
+| Factor | 3 | 4 | Look | 3 | 4 |
+| Lapierre | 4 | 8 | Ridley | 4 | 4 |
+| Santa Cruz | 6 | 12 | Yeti | 4 | 9 |
+| Pivot | 4 | 8 | Commencal | 5 | 10 |
+| YT | 4 | 9 | Rocky Mountain | 5 | 10 |
+| Kona | 6 | 13 | Marin | 5 | 10 |
+| WINSPACE | 8 | 13 | SAVA | 4 | 7 |
+| PARDUS | 5 | 9 | XDS | 6 | 12 |
+| X-LAB | 3 | 6 | JAVA | 2 | 4 |
+| TWITTER | 1 | 2 | Decathlon | 7 | 14 |
+
+### 6.2 价格口径
+
+1. **中国区官网实价（CNY）**：Specialized、Trek、Giant、Canyon 中国站，直接读取产品页或站内商品数据。
+2. **官网美元价折算**：BMC、Felt、Factor、Look、Cervélo、Cannondale、Santa Cruz、Yeti、Pivot、Rocky Mountain、YT、WINSPACE、SAVA 等，按 **1 USD≈7.2 CNY** 折算，车系页注明「参考价」。
+3. **官网欧元价折算**：Merida、Scott、Cube、Orbea、Colnago、Bianchi、Wilier、Ridley、Commencal 等，按 **1 EUR≈7.8 CNY** 折算。
+4. **英镑价折算**：Lapierre 按 **1 GBP≈9.1 CNY** 折算。
+5. **仅参考价**：官网未公开整车价、或中国区未上架的 Pinarello 等，按同级配置与公开渠道给出参考价，并在车系页明确标注，不作为报价承诺。
+
+汇率折算只用于量级比较，不构成跨境购买建议；中国区售价含税与进口环节，与 USD/EUR 标价不可直接相减比较。
+
+### 6.3 来源与可追溯性
+
+- 每个新增车系在 `notes` 字段保留至少一个品牌官网 URL，站内车系页自动渲染为「品牌官方页面」外链。
+- 可访问的中国站优先：<https://www.specialized.com.cn>、<https://www.trekbikes.com/cn/zh_CN/>、<https://www.giant.com.cn>、<https://www.canyon.com/zh-cn/>。
+- 全球站：<https://www.merida-bikes.com>、<https://www.cannondale.com>、<https://www.scott-sports.com>、<https://www.cube.eu>、<https://www.orbea.com>、<https://www.bmc-switzerland.com>、<https://www.cervelo.com>、<https://www.pinarello.com>、<https://www.colnago.com>、<https://www.bianchi.com>、<https://www.wilier.com>、<https://www.factor-bikes.com>、<https://www.lookcycle.com>、<https://www.lapierrebikes.com>、<https://www.ridley-bikes.com>、<https://www.santacruzbicycles.com>、<https://www.yeticycles.com>、<https://www.pivotcycles.com>、<https://www.commencal.com>、<https://www.yt-industries.com>、<https://www.rmbikes.com>、<https://www.konaworld.com>、<https://www.marinbikes.com>。
+- 国产与直销品牌：<https://www.xidesheng.com>、<https://www.parduscycle.com>、<https://savadeck-bike.com>、<https://www.winspace.cc>、<https://www.java-bike.com>、<https://www.twitter-bike.com>、<https://www.decathlon.com.cn>。
+
+### 6.4 已知边界
+
+- 部分品牌官网价格由前端脚本注入或对抓取返回 403/Incapsula 拦截页（Merida、Cannondale、Cube、Orbea、Scott 等），价格按官网建议价折算，产品线与型号名仍来自官网。
+- 官网只公布车架组价格或起价的车型，站内按起价/同级配置录入，并在版本说明中标注。
+- 除 X-LAB AD9、SAVA Blade R7/R9 外，新增车系的几何仍为参考模型；不要用于 fitting。
+- 官网配色图未全面覆盖新增车系，缺图时使用数据驱动 SVG 工程侧视图。
+
+## 七、未核实 / 待补清单
 
 | 车型 | 缺口 |
 |---|---|
@@ -444,7 +496,7 @@
 | Merida One-Sixty | 车架材质、套件、轮组、重量、几何 |
 | Commencal Meta SX | 车架材质、套件、轮组、重量、几何（官网几何为图片） |
 
-## 七、方法与口径
+## 八、方法与口径
 
 1. **来源优先级**：品牌官网商品页（价格/规格/重量/几何）> 品牌新闻稿 > 媒体实测（BikeRadar、Cyclingnews、Pinkbike、Bikerumor、BIKE、TOUR）> 零售商页面（仅作价格线索）。
 2. **几何取 M 码**：官网直接给 Frame Stack/Reach 的（Specialized、Canyon、Cervélo）优先；其余用 ridedna.ai 的厂商公布几何汇总表（逐尺码，含 HTA/STA/ETT/WB 校验）。尺码不叫 M 的品牌按最接近 M 的标称码记录（如 Pinarello 540、Colnago 510、Cannondale 54）。

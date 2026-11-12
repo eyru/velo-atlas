@@ -26,6 +26,7 @@ export function FamilyDetail({ id }: { id: string }) {
   }
 
   const brand = getBrand(family.brand);
+  const officialUrl = family.notes?.match(/https?:\/\/[^\s；，。（）()]+/)?.[0];
   const brandBikes = bikes.filter((b) => b.familyId === family.id).sort((a, b) => b.year - a.year);
   const heroBike = brandBikes[0];
   const [colorIndex, setColorIndex] = useState(0);
@@ -118,7 +119,14 @@ export function FamilyDetail({ id }: { id: string }) {
             <p className="eyebrow">HIGHLIGHTS / 设计要点</p>
             <h2>这一代改了什么。</h2>
           </div>
-          <p className="section-note">{family.notes ?? "以下为公开资料整理，具体配置以品牌当期公布为准。"}</p>
+          <div className="section-note-wrap">
+            <p className="section-note">{family.notes ?? "以下为公开资料整理，具体配置以品牌当期公布为准。"}</p>
+            {officialUrl ? (
+              <a className="text-link" href={officialUrl} target="_blank" rel="noreferrer">
+                品牌官方页面 <ArrowUpRight size={13} />
+              </a>
+            ) : null}
+          </div>
         </div>
         <div className="highlight-grid">
           {family.highlights.map((h, i) => (

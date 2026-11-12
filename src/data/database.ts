@@ -11,10 +11,14 @@ import { mtbFamiliesC } from "./families-mtb-c";
 import { cnRoadFamilies, cnMtbFamilies } from "./families-cn";
 import { entryRoadFamilies } from "./families-entry-road";
 import { entryMtbFamilies } from "./families-entry-mtb";
+import { officialAFamilies } from "./families-official-a";
+import { officialBFamilies } from "./families-official-b";
+import { officialCFamilies } from "./families-official-c";
+import { officialDFamilies } from "./families-official-d";
 import { slugify } from "./helpers";
 import type { Bike, BuildRaw, Category, Discipline, FamilyRaw, SpecGroup } from "./types";
 
-export const families: FamilyRaw[] = [
+const rawFamilies: FamilyRaw[] = [
   ...roadFamiliesA,
   ...roadFamiliesB,
   ...roadFamiliesC,
@@ -26,7 +30,33 @@ export const families: FamilyRaw[] = [
   ...cnMtbFamilies,
   ...entryRoadFamilies,
   ...entryMtbFamilies,
+  ...officialAFamilies,
+  ...officialBFamilies,
+  ...officialCFamilies,
+  ...officialDFamilies,
 ];
+
+function editionWithoutFamilyName(familyName: string, edition: string): string {
+  const name = familyName.trim();
+  const value = edition.trim();
+  if (!name) return value;
+  if (value.toLowerCase().startsWith(name.toLowerCase() + " ")) {
+    return value.slice(name.length + 1).trim() || value;
+  }
+  return value;
+}
+
+// 新一批官网数据里，部分版本名把车系名也写了进去（如 “Grizl CF 8 ESC”）。
+// 统一去掉展示层的车系前缀，避免详情页出现 “Grizl Grizl CF 8 ESC”；
+// rawEdition 保留原值，因此既有 URL / id 不会变化。
+export const families: FamilyRaw[] = rawFamilies.map((family) => ({
+  ...family,
+  builds: family.builds.map((build) => ({
+    ...build,
+    rawEdition: build.rawEdition ?? build.edition,
+    edition: editionWithoutFamilyName(family.name, build.edition),
+  })),
+}));
 
 const disciplineMeta: Record<Discipline, { label: string; en: string; blurb: string }> = {
   aero: { label: "气动公路", en: "Aero Road", blurb: "为平路速度与集团冲刺而生，管型与整合度优先。" },
@@ -181,7 +211,7 @@ function makeBike(family: FamilyRaw, build: BuildRaw): Bike {
   const priceUsd = Math.round(build.price / 7.2 / 50) * 50;
   const drivetrain = drivetrainOf(build.groupset);
   const name = `${family.brand} ${family.name} ${build.edition}`;
-  const id = `${family.id}-${build.year}-${slugify(build.edition)}`;
+  const id = `${family.id}-${build.year}-${slugify(build.rawEdition ?? build.edition)}`;
   const base = { sizes, priceUsd, drivetrain };
   const specs = specsOf(family, build, base);
   const filled = [

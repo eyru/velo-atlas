@@ -222,6 +222,14 @@ p {
   line-height: 1.7;
 }
 
+.section-note-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 430px;
+}
+
 .section-count {
   color: var(--dim);
 }

@@ -80,6 +80,8 @@ export interface Brand {
 export type BuildRaw = {
   year: number;
   edition: string;
+  /** 原始版本名（保留用于生成稳定 id，展示时去掉重复的车系前缀） */
+  rawEdition?: string;
   price: number;
   weight: number;
   groupset: string;

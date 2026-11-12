@@ -94,14 +94,15 @@ export function About() {
             便于检索，不代表官方译名。价格统一标注为「参考价」，不构成销售报价或购买建议。
           </p>
           <p>
-            2026 年 11 月，我们对 20 款公路与山地旗舰、16 个国产车系做了逐项核对（官网价格 / MSRP、套件、轮组、整车重量与 M 码几何），
-            站内对应版本的价格与配置已按核对结果修正；完整来源、置信度与未核实项记录在
+            2026 年 11 月，我们按 36 个品牌的官网在售产品线做了一轮系统扩充：新增 187 个车系、371 个版本，
+            站内合计 393 个车系、826 个版本。价格、套件、轮组、整车重量与尺码按官网档位逐项录入；官网只提供美元或欧元的车型，
+            按 1 USD≈7.2 CNY、1 EUR≈7.8 CNY 折算并标注为参考价。完整来源、置信度与未核实项记录在
             <a className="text-link" href="research/fact-check.md" target="_blank" rel="noreferrer">数据核对报告</a>中。
           </p>
           <p>
-            本轮新增的 XDS 喜德盛、X-LAB、PARDUS 瑞豹、SAVA 萨瓦与 WINSPACE 银贝斯，均回到品牌官方产品页逐项录入；
-            25 张配色图取自品牌官网或官方 CDN，并在图内标注来源。X-LAB AD9 与 SAVA Blade R7/R9 使用官方逐码几何，
-            其余车型明确标注为参考模型。
+            本轮补充的 XDS 喜德盛、X-LAB、PARDUS 瑞豹、SAVA 萨瓦、WINSPACE 银贝斯、JAVA、TWITTER 与迪卡侬，
+            均回到品牌官方产品页或官网产品线录入；25 张配色图取自品牌官网或官方 CDN，并在图内标注来源。
+            X-LAB AD9 与 SAVA Blade R7/R9 使用官方逐码几何，其余车型明确标注为参考模型。
           </p>
           <p>
             本站与任何品牌、经销商无隶属关系。若你是品牌方并发现数据需要更正，欢迎通过页脚的信息反馈；我们会在核对后更新。
@@ -115,6 +116,9 @@ export function About() {
             { label: "PARDUS 瑞豹", href: "https://www.parduscycle.com" },
             { label: "SAVA 萨瓦", href: "https://savadeck-bike.com" },
             { label: "WINSPACE 银贝斯", href: "https://winspace.com.au" },
+            { label: "JAVA", href: "https://www.java-bike.com" },
+            { label: "TWITTER", href: "https://www.twitter-bike.com" },
+            { label: "迪卡侬", href: "https://www.decathlon.com.cn" },
           ].map((s) => (
             <a key={s.label} href={s.href} target="_blank" rel="noreferrer">
               {s.label} <ArrowUpRight size={11} />
