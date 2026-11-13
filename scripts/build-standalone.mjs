@@ -109,7 +109,8 @@ let out = html
   .replace(jsMatch[0], () => "")
   .replace(cssMatch[0], () => "<style>" + css + "</style>")
   .replace(/<link rel="icon"[^>]*>/, () => '<link rel="icon" href="' + faviconUri + '" type="image/svg+xml">')
-  .replace("</body>", () => reportBridge + "\n<script>" + js + "</script>\n</body>")
+  // 带 import.meta 的包必须按模块执行；模块脚本内联后在 file:// 下同样可用。
+  .replace("</body>", () => reportBridge + '\n<script type="module">' + js + "</script>\n</body>")
   .replace("<body>", () => '<!-- VELO ATLAS 单文件版：样式、脚本、图标、官方配色图与核查报告均已内联，双击即可离线打开。 -->\n  <body>');
 
 const leftover = [...out.matchAll(/.{0,100}(?:src|href)="\/assets\/.{0,100}/g)].slice(0, 8).map((m) => m[0]);

@@ -1,10 +1,11 @@
-import { Fragment, useMemo, useState } from "react";
-import { ArrowRight, Check, GitCompare, Plus, Printer, Search, Trash2, X } from "lucide-react";
-import { bikes } from "../data/database";
+import { Fragment, useEffect, useMemo, useRef, useState } from "react";
+import { ArrowRight, Check, Download, GitCompare, Link2, Plus, Printer, Search, Trash2, X } from "lucide-react";
+import { bikeById, bikes } from "../data/database";
 import type { Bike } from "../data/types";
 import { cny, disciplineLabel, weight } from "../lib/format";
-import { clearCompare, removeCompare, toggleCompare, useCompareBikes } from "../lib/compare";
-import { Link } from "../router";
+import { clearCompare, parseCompareParam, removeCompare, setCompareIds, toggleCompare, useCompareIds } from "../lib/compare";
+import { useCompareBikes } from "../lib/compareBikes";
+import { Link, useRoute } from "../router";
 import { BikeSVG } from "../components/BikeSVG";
 import { usePageTitle } from "../lib/useTitle";
 
@@ -44,11 +45,70 @@ const ROWS: Row[] = [
   { label: "数据完整度", group: "外观", get: (b) => b.completeness + "%", better: "high", raw: (b) => b.completeness },
 ];
 
+const SHARE_PARAM = "bikes";
+
+function shareUrl(ids: string[]): string {
+  const base = window.location.origin + window.location.pathname;
+  return base + "#/compare" + (ids.length ? "?" + SHARE_PARAM + "=" + ids.join(",") : "");
+}
+
+function exportCsv(list: Bike[]) {
+  const header = ["项目", ...list.map((b) => `${b.brandName} ${b.family} ${b.edition} · ${b.year}`)];
+  const rows = ROWS.map((row) => [row.label, ...list.map((b) => row.get(b))]);
+  const csv = [header, ...rows]
+    .map((row) => row.map((cell) => `"${String(cell).replace(/"/g, '""')}"`).join(","))
+    .join("\r\n");
+  const blob = new Blob(["\ufeff" + csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `velo-atlas-compare-${new Date().toISOString().slice(0, 10)}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
 export function Compare() {
   usePageTitle("对比台");
+  const route = useRoute();
+  const ids = useCompareIds();
   const list = useCompareBikes();
   const [adding, setAdding] = useState(false);
   const [q, setQ] = useState("");
+  const [shared, setShared] = useState(false);
+  const imported = useRef(false);
+
+  // 分享链接导入 + 历史失效 id 清理，一次完成，避免两个 effect 互相覆盖
+  useEffect(() => {
+    if (!imported.current) {
+      imported.current = true;
+      const sharedIds = parseCompareParam(route.query.get(SHARE_PARAM)).filter((id) => !!bikeById[id]);
+      if (sharedIds.length) {
+        setCompareIds(sharedIds);
+        return;
+      }
+    }
+    const valid = ids.filter((id) => !!bikeById[id]);
+    if (valid.length !== ids.length) setCompareIds(valid);
+  }, [ids, route.query]);
+
+  // 地址栏与对比台保持同步，复制出来的链接可直接还原这一台对比表
+  useEffect(() => {
+    const next = "#/compare" + (ids.length ? "?" + SHARE_PARAM + "=" + ids.join(",") : "");
+    if (window.location.hash !== next) window.history.replaceState(null, "", next);
+  }, [ids]);
+
+  const copyShare = async () => {
+    const url = shareUrl(ids);
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch {
+      window.prompt("复制对比台链接", url);
+    }
+    setShared(true);
+    window.setTimeout(() => setShared(false), 2200);
+  };
 
   const suggestions = useMemo(() => {
     const query = q.trim().toLowerCase();
@@ -75,6 +135,10 @@ export function Compare() {
             <div className="compare-actions">
               {list.length ? (
                 <>
+                  <button className="btn btn-ghost" onClick={copyShare}>
+                    {shared ? <Check size={15} /> : <Link2 size={15} />} {shared ? "链接已复制" : "分享链接"}
+                  </button>
+                  <button className="btn btn-ghost" onClick={() => exportCsv(list)}><Download size={15} /> 导出 CSV</button>
                   <button className="btn btn-ghost" onClick={() => window.print()}><Printer size={15} /> 打印对比表</button>
                   <button className="btn btn-ghost" onClick={clearCompare}><Trash2 size={15} /> 清空</button>
                 </>

@@ -49,7 +49,7 @@ export function Brands() {
           <div className="breadcrumb mono"><Link to="/">首页</Link><span>/</span><span>品牌库</span></div>
           <div className="simple-hero-grid">
             <div>
-              <p className="eyebrow">BRAND INDEX / 28 MAKERS</p>
+              <p className="eyebrow">BRAND INDEX / {brands.length} MAKERS</p>
               <h1>品牌<em>谱系</em></h1>
               <p className="catalog-desc">
                 从意大利手工钢管到加州碳纤维实验室，每个品牌都有自己的几何哲学与配置逻辑。

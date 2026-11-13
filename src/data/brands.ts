@@ -1,6 +1,6 @@
 import type { Brand } from "./types";
 
-export const brands: Brand[] = [
+const brandList: Brand[] = [
   { slug: "specialized", name: "Specialized", cn: "闪电", country: "美国", founded: 1974, accent: "#e01f2d", tagline: "Innovate or Die", story: "从车库里的三条轮胎到全球最大的自行车品牌之一，Specialized 把风洞、人体工学与赛事反馈写进每一代车架。", specialties: ["公路", "山地", "Gravel"], tech: ["FACT 碳纤维", "Body Geometry", "Rider-First Engineered"] },
   { slug: "trek", name: "Trek", cn: "崔克", country: "美国", founded: 1976, accent: "#00a3e0", tagline: "We Build Bikes", story: "诞生于威斯康星谷仓的 Trek，用 OCLV 碳纤维与 Project One 定制体系，构建了覆盖公路到速降的完整产品宇宙。", specialties: ["公路", "山地", "城市"], tech: ["OCLV 碳纤维", "IsoSpeed", "Project One"] },
   { slug: "giant", name: "Giant", cn: "捷安特", country: "中国台湾", founded: 1972, accent: "#0055a5", tagline: "Ride Life. Ride Giant.", story: "全球最大的自行车制造商，从代工到自有品牌，以 Advanced 碳纤维与 Maestro 悬挂系统影响整个行业。", specialties: ["公路", "山地", "通勤"], tech: ["Advanced SL", "Maestro", "ALUXX"] },
@@ -33,11 +33,53 @@ export const brands: Brand[] = [
   { slug: "xlab", name: "X-LAB", cn: "喜德盛实验室", country: "中国大陆", founded: 2022, accent: "#c8ff3d", tagline: "Race Lab", story: "X-LAB 是喜德盛的高端竞赛子品牌，把风洞、碳纤维铺层与职业车队反馈压缩进少数几个型号；AD 系列用激进的竞赛几何和一体化座舱，直接对标国际一线气动公路车。", specialties: ["公路"], tech: ["T1100 碳纤维", "一体成型", "全内走线"], website: "https://www.xidesheng.com" },
   { slug: "pardus", name: "PARDUS", cn: "瑞豹", country: "中国大陆", founded: 2013, accent: "#00b3a4", tagline: "Born to Race", story: "瑞豹从山东泰安的碳纤维工厂出发，先为职业队做代工，再用 ROBIN 公路与 TIFONE 山地建立自有产品线；里约奥运会中国国家队战车 NAIK 是它最被记住的一次亮相。", specialties: ["公路", "山地", "Gravel"], tech: ["T1100 碳布", "WING 一体把", "全隐藏走线"], website: "https://www.parduscycle.com" },
   { slug: "sava", name: "SAVA", cn: "萨瓦", country: "中国大陆", founded: 2010, accent: "#ff6b00", tagline: "Carbon for All", story: "萨瓦用直销与碳纤维规模生产，把全碳公路车的门槛拉到主流价位；Blade、AeroX 与 Gelaro 覆盖气动、综合与砾石，配置表直接、型号迭代快，是国产品牌里很少见的全球化打法。", specialties: ["公路", "Gravel", "山地"], tech: ["T800/T1000 碳布", "CFR 车架", "全内走线"], website: "https://savadeck-bike.com" },
-  { slug: "winspace", name: "WINSPACE", cn: "银贝斯", country: "中国大陆", founded: 2008, accent: "#4d7cff", tagline: "Speed, Engineered", story: "银贝斯从碳纤维轮组起家，随后把一体成型车架、T47 中轴与 ACR 全内走线做成自己的工程语言；T1550 与 SLC5 在海外评测中频繁出现，是国产高端公路车最常被拿来与国际品牌对位的名字之一。", specialties: ["公路", "Gravel"], tech: ["T1000+T800 碳布", "ACR 全内走线", "T47 中轴"], website: "https://winspace.com.au" },
+  { slug: "winspace", name: "WINSPACE", cn: "银贝斯", country: "中国大陆", founded: 2008, accent: "#4d7cff", tagline: "Speed, Engineered", story: "银贝斯从碳纤维轮组起家，随后把一体成型车架、T47 中轴与 ACR 全内走线做成自己的工程语言；T1550 与 SLC5 在海外评测中频繁出现，是国产高端公路车最常被拿来与国际品牌对位的名字之一。", specialties: ["公路", "Gravel"], tech: ["T1000+T800 碳布", "ACR 全内走线", "T47 中轴"], website: "https://www.winspace.cc" },
   { slug: "decathlon", name: "Decathlon", cn: "迪卡侬", country: "法国", founded: 1976, accent: "#16529b", tagline: "Sport for All", story: "从法国里尔的一家体育用品超市起步，迪卡侬用自有品牌把自行车价格压到大众区间；Triban 公路与 Rockrider 山地是很多人真正的第一台车，门店试骑与售后网络是它最实际的优势。", specialties: ["公路", "山地", "通勤"], tech: ["Triban 铝合金车架", "Rockrider 硬尾平台", "门店调试"] },
   { slug: "java", name: "JAVA", cn: "佳沃", country: "中国大陆", founded: 2010, accent: "#b5121b", tagline: "Ride Your Style", story: "JAVA（佳沃）以全内走线、气动管型和鲜明涂装切入年轻公路车市场，Veloce、Siluro 等型号把碳架与铝架价格压到入门区间，是国产直销品牌里视觉辨识度很高的一家。", specialties: ["公路", "Gravel"], tech: ["全内走线", "T800 碳纤维", "液压碟刹"] },
   { slug: "twitter", name: "TWITTER", cn: "推特", country: "中国大陆", founded: 2010, accent: "#1655c9", tagline: "Carbon Direct", story: "TWITTER 以线上直销和碳纤维车架为核心，Raptor 公路与 Sniper 山地用配置表和价格吸引首购用户；型号迭代快，购买前需要确认当季配置与售后网点。", specialties: ["公路", "山地"], tech: ["T800 碳纤维", "直销模式", "全内走线"] },
 ];
+
+/**
+ * 品牌官网：车系数据没有单独产品页链接时，作为来源回退。
+ * 只放品牌官方域名，不放经销商或媒体页面。
+ */
+const websiteBySlug: Record<string, string> = {
+  specialized: "https://www.specialized.com/cn/zh",
+  trek: "https://www.trekbikes.com/cn/zh_CN/",
+  giant: "https://www.giant-bicycles.com/cn",
+  canyon: "https://www.canyon.com/zh-cn/",
+  pinarello: "https://www.pinarello.com",
+  colnago: "https://www.colnago.com",
+  cervelo: "https://www.cervelo.com",
+  scott: "https://www.scott-sports.com/cn/zh/",
+  merida: "https://www.merida-bikes.com/zh-cn",
+  bmc: "https://www.bmc-switzerland.com",
+  orbea: "https://www.orbea.com",
+  bianchi: "https://www.bianchi.com",
+  wilier: "https://www.wilier.com",
+  factor: "https://www.factor-bikes.com",
+  lapierre: "https://www.lapierrebikes.com",
+  ridley: "https://www.ridley-bikes.com",
+  cube: "https://www.cube.eu",
+  cannondale: "https://www.cannondale.com",
+  look: "https://www.lookcycle.com",
+  felt: "https://www.feltbicycles.com",
+  santacruz: "https://www.santacruzbicycles.com",
+  yeti: "https://www.yeticycles.com",
+  pivot: "https://www.pivotcycles.com",
+  commencal: "https://www.commencal.com",
+  yt: "https://www.yt-industries.com",
+  rockymountain: "https://bikes.com",
+  kona: "https://www.konaworld.com",
+  marin: "https://www.marinbikes.com",
+  decathlon: "https://www.decathlon.com.cn",
+  java: "https://www.java-bike.com",
+  twitter: "https://www.twitter-bike.com",
+};
+
+export const brands: Brand[] = brandList.map((brand) =>
+  brand.website ? brand : { ...brand, website: websiteBySlug[brand.slug] },
+);
 
 export const brandBySlug = Object.fromEntries(brands.map((b) => [b.slug, b]));
 

@@ -1,18 +1,27 @@
 import { useSyncExternalStore } from "react";
-import { bikeById } from "../data/database";
-import type { Bike } from "../data/types";
 
+/**
+ * 对比台只保存版本 id，不依赖车型数据。
+ * 这样页头、卡片等外壳组件不会把全量数据库拖进首屏 chunk；
+ * id 是否有效由对比台页面在渲染时过滤。
+ */
 const KEY = "velo-atlas-compare";
 
 const MAX = 3;
 let ids: string[] = [];
 let loaded = false;
 const listeners = new Set<() => void>();
+
+function normalize(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  return [...new Set(value.filter((id): id is string => typeof id === "string" && id.length > 0))].slice(0, MAX);
+}
+
 if (typeof window !== "undefined") {
   window.addEventListener("storage", (event) => {
     if (event.key !== KEY) return;
     try {
-      ids = (JSON.parse(event.newValue ?? "[]") as string[]).filter((id) => !!bikeById[id]).slice(0, MAX);
+      ids = normalize(JSON.parse(event.newValue ?? "[]"));
     } catch {
       ids = [];
     }
@@ -25,8 +34,7 @@ function load() {
   if (loaded) return;
   loaded = true;
   try {
-    const raw = localStorage.getItem(KEY);
-    if (raw) ids = (JSON.parse(raw) as string[]).filter((id) => !!bikeById[id]).slice(0, MAX);
+    ids = normalize(JSON.parse(localStorage.getItem(KEY) ?? "[]"));
   } catch {
     ids = [];
   }
@@ -52,18 +60,9 @@ export function useCompareIds(): string[] {
   return useSyncExternalStore(subscribe, () => ids, () => ids);
 }
 
-export function useCompareBikes(): Bike[] {
-  const list = useCompareIds();
-  return list.map((id) => bikeById[id]).filter(Boolean);
-}
-
 export function toggleCompare(id: string): boolean {
   load();
-  if (ids.includes(id)) {
-    ids = ids.filter((x) => x !== id);
-  } else {
-    ids = [...ids, id].slice(-MAX);
-  }
+  ids = ids.includes(id) ? ids.filter((x) => x !== id) : [...ids, id].slice(-MAX);
   emit();
   return ids.includes(id);
 }
@@ -80,4 +79,18 @@ export function clearCompare() {
   emit();
 }
 
-export { MAX as MAX_COMPARE };
+/** 用一组 id 覆盖对比台（分享链接导入、失效 id 清理）。 */
+export function setCompareIds(next: string[]): string[] {
+  load();
+  ids = normalize(next);
+  emit();
+  return ids;
+}
+
+/** 解析 #/compare?bikes=a,b,c 的分享参数。 */
+export function parseCompareParam(value: string | null): string[] {
+  if (!value) return [];
+  return normalize(value.split(",").map((x) => decodeURIComponent(x.trim())));
+}
+
+export { MAX as MAX_COMPARE, KEY as COMPARE_STORAGE_KEY };

@@ -15,6 +15,7 @@ import { officialAFamilies } from "./families-official-a";
 import { officialBFamilies } from "./families-official-b";
 import { officialCFamilies } from "./families-official-c";
 import { officialDFamilies } from "./families-official-d";
+import { familySources } from "./family-sources";
 import { slugify } from "./helpers";
 import type { Bike, BuildRaw, Category, Discipline, FamilyRaw, SpecGroup } from "./types";
 
@@ -36,25 +37,56 @@ const rawFamilies: FamilyRaw[] = [
   ...officialDFamilies,
 ];
 
-function editionWithoutFamilyName(familyName: string, edition: string): string {
-  const name = familyName.trim();
-  const value = edition.trim();
-  if (!name) return value;
-  if (value.toLowerCase().startsWith(name.toLowerCase() + " ")) {
-    return value.slice(name.length + 1).trim() || value;
-  }
-  return value;
+function wordsOf(value: string): string[] {
+  return value.trim().split(/[\s\-_/]+/).filter(Boolean);
 }
 
-// 新一批官网数据里，部分版本名把车系名也写了进去（如 “Grizl CF 8 ESC”）。
-// 统一去掉展示层的车系前缀，避免详情页出现 “Grizl Grizl CF 8 ESC”；
-// rawEdition 保留原值，因此既有 URL / id 不会变化。
+// 部分官网版本名把车系名也写了进去（如 “Grizl CF 8 ESC”“Kona Kahuna”）。
+// 展示层按整词去掉与车系名重合的前缀，避免出现 “Grizl Grizl CF 8 ESC”；
+// 整段都被车系名吃掉时标为 “标准版”。rawEdition 保留原值，因此 URL / id 不变。
+export function displayEdition(familyName: string, edition: string): string {
+  const familyWords = wordsOf(familyName).map((w) => w.toLowerCase());
+  if (!familyWords.length) return edition.trim();
+  const editionWords = wordsOf(edition);
+  // 两种整词重合都要处理：
+  // 1) 版本名从车系名开头写起（Grizl / Grizl CF 8、Grevil F / Grevil F7 GRX）；
+  // 2) 版本名从车系名末尾写起（Domane AL / AL 2、TCR Advanced / Advanced SL 0）。
+  // 取匹配更长的那个，避免出现 "Domane AL AL 2" 或 "Grevil F Grevil F7"。
+  let prefixShared = 0;
+  while (
+    prefixShared < familyWords.length &&
+    prefixShared < editionWords.length &&
+    editionWords[prefixShared].toLowerCase() === familyWords[prefixShared]
+  ) {
+    prefixShared += 1;
+  }
+  let suffixShared = 0;
+  const maxShared = Math.min(familyWords.length, editionWords.length);
+  for (let k = maxShared; k > 0; k -= 1) {
+    let matches = true;
+    for (let i = 0; i < k; i += 1) {
+      if (editionWords[i].toLowerCase() !== familyWords[familyWords.length - k + i]) {
+        matches = false;
+        break;
+      }
+    }
+    if (matches) {
+      suffixShared = k;
+      break;
+    }
+  }
+  const shared = Math.max(prefixShared, suffixShared);
+  if (!shared) return edition.trim();
+  const rest = editionWords.slice(shared);
+  return rest.length ? rest.join(" ") : "标准版";
+}
+
 export const families: FamilyRaw[] = rawFamilies.map((family) => ({
   ...family,
   builds: family.builds.map((build) => ({
     ...build,
     rawEdition: build.rawEdition ?? build.edition,
-    edition: editionWithoutFamilyName(family.name, build.edition),
+    edition: displayEdition(family.name, build.edition),
   })),
 }));
 
@@ -195,7 +227,7 @@ function specsOf(family: FamilyRaw, build: BuildRaw, bike: Pick<Bike, "sizes" | 
     icon: "tag",
     items: [
       { label: "年款", value: `${build.year}` },
-      { label: "版本", value: build.edition },
+      { label: "官方版本名", value: build.rawEdition ?? build.edition },
       { label: "中国区参考价", value: `¥${build.price.toLocaleString("zh-CN")}` },
       { label: "美元参考价", value: `$${bike.priceUsd.toLocaleString("en-US")}` },
       { label: "整车重量", value: `${build.weight.toFixed(1)} kg` },
@@ -210,8 +242,14 @@ function makeBike(family: FamilyRaw, build: BuildRaw): Bike {
   const sizes = buildSizes(family);
   const priceUsd = Math.round(build.price / 7.2 / 50) * 50;
   const drivetrain = drivetrainOf(build.groupset);
-  const name = `${family.brand} ${family.name} ${build.edition}`;
+  const name = [family.brand, family.name, build.edition === "标准版" ? "" : build.edition]
+    .filter(Boolean)
+    .join(" ");
   const id = `${family.id}-${build.year}-${slugify(build.rawEdition ?? build.edition)}`;
+  // 来源优先级：sitemap 匹配到的车系页 > notes 里的官方链接 > 品牌官网
+  const notesUrl = family.notes?.match(/https?:\/\/[^\s；，。（）()]+/)?.[0];
+  const sourceUrl = familySources[family.id] ?? notesUrl ?? brand?.website;
+  const sourceKind = familySources[family.id] || notesUrl ? "family" : "brand";
   const base = { sizes, priceUsd, drivetrain };
   const specs = specsOf(family, build, base);
   const filled = [
@@ -290,6 +328,8 @@ function makeBike(family: FamilyRaw, build: BuildRaw): Bike {
     sizes,
     geoSource: family.geoSource,
     geoConfidence: family.geoConfidence ?? (family.geoTable?.length ? "official" : "estimated"),
+    sourceUrl,
+    sourceKind,
     photo: family.colors.find((c) => c.photo)?.photo,
     photoSource: family.colors.find((c) => c.photo)?.photoSource,
     specs,

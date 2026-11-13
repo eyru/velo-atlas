@@ -3729,6 +3729,38 @@ p {
   font-weight: 500;
 }
 
+/* 来源 / 几何口径 / 图片口径：让每条数据的可追溯性写在页面上 */
+.provenance-row {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  color: var(--text-2);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+}
+
+.provenance-key {
+  color: var(--dim);
+  font-size: 0.56rem;
+  letter-spacing: 0.16em;
+}
+
+.provenance-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-right: 8px;
+  padding-bottom: 1px;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent-line);
+}
+
+.provenance-row > span:nth-child(even) {
+  margin-right: 8px;
+}
+
 /* --------------------------------------------------------------------------
    compare
    -------------------------------------------------------------------------- */
@@ -3921,8 +3953,17 @@ thead .compare-label-col {
 }
 
 .compare-bike-visual {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
   margin-bottom: 8px;
+}
+
+/* 不同车型的 SVG 比例不同，锁定高度让两列表头对齐 */
+.compare-bike-visual .bike-svg {
+  width: 100%;
+  height: 100%;
 }
 
 .compare-bike-brand {
@@ -5140,6 +5181,54 @@ thead .compare-label-col {
   }
   .compare-table {
     page-break-inside: auto;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Route fallback — code-split pages load behind this scan bar
+   -------------------------------------------------------------------------- */
+.route-fallback {
+  display: grid;
+  place-content: center;
+  gap: 14px;
+  min-height: 62vh;
+  padding: 96px var(--pad);
+  color: var(--dim);
+  text-align: center;
+}
+
+.route-fallback-bar {
+  position: relative;
+  display: block;
+  width: min(320px, 60vw);
+  height: 2px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--line-2);
+}
+
+.route-fallback-bar i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 38%;
+  background: var(--accent);
+  animation: route-scan 1.1s var(--ease) infinite;
+}
+
+@keyframes route-scan {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(320%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-fallback-bar i {
+    width: 100%;
+    opacity: 0.4;
+    animation: none;
   }
 }
 

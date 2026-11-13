@@ -178,6 +178,9 @@ export type Bike = {
   sizes: SizeRow[];
   geoSource?: string;
   geoConfidence: "official" | "estimated";
+  /** 可追溯来源：车系产品页优先，取不到时回退到品牌官网 */
+  sourceUrl?: string;
+  sourceKind: "family" | "brand";
   photo?: string;
   photoSource?: string;
   specs: SpecGroup[];

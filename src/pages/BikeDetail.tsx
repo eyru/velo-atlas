@@ -116,6 +116,7 @@ export function BikeDetail({ id }: { id: string }) {
                 photo={activeColor.photo}
                 photoSource={activeColor.photoSource}
                 alt={`${bike.brandName} ${bike.family} ${activeColor.name} 官方产品图`}
+                priority
               >
                 <BikeSVG bike={bike} color={activeColor.hex} showGeometry />
               </BikeVisualMedia>
@@ -343,6 +344,20 @@ export function BikeDetail({ id }: { id: string }) {
 
       <div className="container bike-note">
         <p><strong>数据说明：</strong>{bike.notes} 价格换算按 1 USD ≈ 7.2 CNY 估算，仅用于横向参考。官方产品图版权归品牌所有，仅作车型识别与配色参考；配置与几何以品牌官方公布为准。</p>
+        <div className="provenance-row mono">
+          <span className="provenance-key">SOURCE</span>
+          {bike.sourceUrl ? (
+            <a className="provenance-link" href={bike.sourceUrl} target="_blank" rel="noreferrer">
+              {bike.sourceKind === "family" ? "车系官方产品页" : "品牌官网（车系页未收录）"} <ArrowUpRight size={12} />
+            </a>
+          ) : (
+            <span>未收录</span>
+          )}
+          <span className="provenance-key">GEO</span>
+          <span>{bike.geoConfidence === "official" ? "品牌官方逐码表" : "参考几何模型"}</span>
+          <span className="provenance-key">IMAGE</span>
+          <span>{bike.photo ? "品牌官方产品图" : "数据驱动工程侧视图"}</span>
+        </div>
         <Link to="/about" className="text-link">查看完整数据来源与免责声明 <ArrowRight size={14} /></Link>
       </div>
     </div>

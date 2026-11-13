@@ -1,18 +1,32 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
-import { SearchOverlay } from "./components/SearchOverlay";
 import { useRoute } from "./router";
+
 import { Home } from "./pages/Home";
-import { Catalog } from "./pages/Catalog";
-import { Brands } from "./pages/Brands";
-import { BrandDetail } from "./pages/BrandDetail";
-import { BikeDetail } from "./pages/BikeDetail";
-import { FamilyDetail } from "./pages/FamilyDetail";
-import { YearDetail } from "./pages/YearDetail";
-import { Compare } from "./pages/Compare";
-import { About } from "./pages/About";
-import { NotFound } from "./pages/NotFound";
+
+// 路由级拆包：首屏只加载外壳；首页常驻，其余页面与数据在导航后拉取。
+// 离线单文件构建会把这些动态导入内联成单个 chunk，见 vite.config.ts。
+const Catalog = lazy(() => import("./pages/Catalog").then((m) => ({ default: m.Catalog })));
+const Brands = lazy(() => import("./pages/Brands").then((m) => ({ default: m.Brands })));
+const BrandDetail = lazy(() => import("./pages/BrandDetail").then((m) => ({ default: m.BrandDetail })));
+const BikeDetail = lazy(() => import("./pages/BikeDetail").then((m) => ({ default: m.BikeDetail })));
+const FamilyDetail = lazy(() => import("./pages/FamilyDetail").then((m) => ({ default: m.FamilyDetail })));
+const YearDetail = lazy(() => import("./pages/YearDetail").then((m) => ({ default: m.YearDetail })));
+const Compare = lazy(() => import("./pages/Compare").then((m) => ({ default: m.Compare })));
+const About = lazy(() => import("./pages/About").then((m) => ({ default: m.About })));
+const NotFound = lazy(() => import("./pages/NotFound").then((m) => ({ default: m.NotFound })));
+
+const Footer = lazy(() => import("./components/Footer").then((m) => ({ default: m.Footer })));
+const SearchOverlay = lazy(() => import("./components/SearchOverlay").then((m) => ({ default: m.SearchOverlay })));
+
+function ArchiveFallback() {
+  return (
+    <div className="route-fallback" role="status" aria-live="polite">
+      <span className="mono">LOADING ARCHIVE</span>
+      <span className="route-fallback-bar"><i /></span>
+    </div>
+  );
+}
 
 export default function App() {
   const route = useRoute();
@@ -58,9 +72,17 @@ export default function App() {
   return (
     <div className="app-shell">
       <Header onOpenSearch={() => setSearchOpen(true)} />
-      <main>{page}</main>
-      <Footer />
-      <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
+      <main>
+        <Suspense fallback={<ArchiveFallback />}>{page}</Suspense>
+      </main>
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
+      {searchOpen ? (
+        <Suspense fallback={null}>
+          <SearchOverlay open onClose={() => setSearchOpen(false)} />
+        </Suspense>
+      ) : null}
     </div>
   );
 }

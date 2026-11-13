@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check, GitCompare, Palette, Ruler } from "lucide-react";
 import { getBrand } from "../data/brands";
 import { bikes, families } from "../data/database";
+import { familySources } from "../data/family-sources";
 import { cny, disciplineLabel, weight } from "../lib/format";
 import { toggleCompare, useCompareIds } from "../lib/compare";
 import { Link } from "../router";
@@ -26,7 +27,10 @@ export function FamilyDetail({ id }: { id: string }) {
   }
 
   const brand = getBrand(family.brand);
-  const officialUrl = family.notes?.match(/https?:\/\/[^\s；，。（）()]+/)?.[0];
+  const familyUrl = family.notes?.match(/https?:\/\/[^\s；，。（）()]+/)?.[0];
+  const sourceUrl = familySources[family.id];
+  const officialUrl = sourceUrl ?? familyUrl ?? brand?.website;
+  const officialIsFallback = !sourceUrl && !familyUrl && !!brand?.website;
   const brandBikes = bikes.filter((b) => b.familyId === family.id).sort((a, b) => b.year - a.year);
   const heroBike = brandBikes[0];
   const [colorIndex, setColorIndex] = useState(0);
@@ -84,6 +88,7 @@ export function FamilyDetail({ id }: { id: string }) {
                   photo={activeColor?.photo}
                   photoSource={activeColor?.photoSource}
                   alt={`${family.brand} ${family.name} ${activeColor?.name ?? ""} 官方产品图`}
+                  priority
                 >
                   <BikeSVG bike={heroBike} color={activeColor?.hex} showGeometry />
                 </BikeVisualMedia>
@@ -123,7 +128,7 @@ export function FamilyDetail({ id }: { id: string }) {
             <p className="section-note">{family.notes ?? "以下为公开资料整理，具体配置以品牌当期公布为准。"}</p>
             {officialUrl ? (
               <a className="text-link" href={officialUrl} target="_blank" rel="noreferrer">
-                品牌官方页面 <ArrowUpRight size={13} />
+                {officialIsFallback ? "品牌官网（车系页未收录）" : "品牌官方页面"} <ArrowUpRight size={13} />
               </a>
             ) : null}
           </div>
